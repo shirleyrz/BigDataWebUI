@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        BigData - Dashboard - Screen1
+    </title>
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link href="../css/main.css" type="style/css" rel="stylesheet">
+    <style type="text/css">
+
+
+        .panel-title {
+            color: black;
+            font-size: 20px;
+            text-align: left;
+            font-weight: bold
+        }
+
+        .panel-description {
+            color: green;
+            font-size: 15px;
+            text-align: center
+
+        }
+
+        .imgmid {
+            max-width: 50%;
+            max-height: 50%;
+            margin: auto;
+            display: block;
+        }
+
+        .margin-bottom15 {
+            margin-bottom: 15px;
+        }
+
+        .margin-left15 {
+            margin-left: 15px;
+        }
+
+        .margin-top-bottom15 {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<!-- NAVIGATION -->
+<nav class="navbar navbar-default" role="navigation" id="navbar">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span></button>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li class="nav_current_perspective">
+                <a href=""><img src="../img/icons/monitor_w.png">Monitor</a>
+            </li>
+            <li>
+                <a href=""><img src="../img/icons/survey.png">Summary</a>
+            </li>
+            <li>
+                <a href=""><img src="../img/icons/investigate.png">Security</a>
+            </li>
+        </ul>
+
+
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown" id="dropdown-user">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Christopher <img src="../img/admin.png"><b
+                        class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">Account Settings</a>
+                    </li>
+                    <li>
+                        <a href="#">Change Tenant</a>
+                    </li>
+                    <li>
+                        <a href="#">Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+</nav>
+<!-- END OF NAVIGATION -->
+
+
+<div>
+    <!--
+    <div class="row" id="botton-row" style="visibility: hidden">
+        <div class="col-xs-12 col-md-12 col-lg-12 " >
+
+
+            <button type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-list"></span>
+            </button>
+
+
+            <button type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-dashboard"></span>
+            </button>
+
+
+            <button type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-align-left"></span>
+            </button>
+
+        </div>
+    </div>
+-->
+    <!--
+        <div class="row" id="static-status">
+            <div class="col-xs-12 col-md-12 col-lg-12" >
+                <div class="detailCard">
+                    <h3 style="color: orange; font-weight: bold; margin: 10px" >You’re not watching any applications. </h3>
+                    <h3 style="color: blue; font-weight: bold;margin: 10px"> Click below to start watching one.</h3>
+                </div>
+            </div>
+        </div>-->
+
+
+    <div class="row margin-bottom15">
+        <div class="col-md-4 ">
+            <h1 class="panel-title margin-left15"> Applications</h1>
+        </div>
+    </div>
+
+    <div class="row margin-bottom15">
+        <div class="col-md-4">
+
+            <div class="surveyCard">
+                <div><img src="../img/green-plus-sign.png" class="imgmid margin-top-bottom15"/></div>
+                <p class="panel-description margin-top-bottom15">Create a New Application</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row  margin-bottom15">
+        <div class="col-md-4 ">
+            <h1 class="panel-title margin-left15"> Clusters</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="surveyCard">
+                <div><img src="../img/green-plus-sign.png" class="imgmid margin-top-bottom15"/></div>
+                <p class="panel-description margin-top-bottom15">Discover a New Cluster</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Creating Modal Window -->
+<div class="modal fade" id="modalApplication" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header btn btn-primary" style="width:100%">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Create an Application</h4>
+            </div>
+
+            <div class="modal-body" class="col-xs-12">
+                <form role="form">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label for="inputName" class="control-label">Name</label>
+                            </div>
+                            <div class="col-xs-6">
+                                <input type="name" class="form-control" id="inputName" placeholder="Enter Name">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <label for="inputDescription" class="control-label">Description</label>
+                            </div>
+                            <div class="col-xs-12">
+                                <textarea id="inputDescription" class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <label for="inputAllJobs" class="control-label">
+                                    Defined Jobsets and Jobs
+                                </label>
+
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <input type="text" class="form-control" id="inputSearch" placeholder="Search">
+                                    </div>
+
+                                    <div class="col-xs-12">
+                                        <select multiple id="inputAllJobs" style="height:200px" class="form-control">
+                                            <option>JobSet 1</option>
+                                            <option>Job 2</option>
+                                            <option>Job 3</option>
+                                            <option>Job 4</option>
+                                            <option>Job 5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-2">
+                                <div class="row">
+                                    <div class="col-xs-12">&nbsp;</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <button id="moveSingle" style="width:60px;height:100px; visibility:hidden"
+                                                class="btn btn-default">
+                                            <span id="singleArrow" class="glyphicon glyphicon-chevron-right"
+                                                  style="align:center"></span>
+                                        </button>
+                                    </div>
+                                    <br/>
+
+                                    <div class="col-xs-12">
+                                        <button id="moveAll" style="width:60px;height:100px" class="btn btn-default">
+                                            <span class="glyphicon glyphicon-chevron-right doublearrow"></span>
+                                            <span class="glyphicon glyphicon-chevron-right doublearrow"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-5">
+                                <label for="inputSelectJobs" class="control-label">
+                                    Selected Jobs
+                                </label>
+
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <select multiple id="inputSelectJobs" style="height:250px" class="form-control">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Add</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+
+            </form>
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal-content -->
+</div>
+    </div>
+<!-- /.modal -->
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="/js/jquery.min.js"><\/script>')</script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/myJs.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        BigData - Dashboard - Screen2
+    </title>
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css//bootstrap-duallistbox.css">
+    <link href="../css/main.css" type="style/css" rel="stylesheet">
+
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="/js/jquery.min.js"><\/script>')</script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.bootstrap-duallistbox.js"></script>
+    <style type="text/css">
+
+
+        .panel-title {
+            color: black;
+            font-size: 20px;
+            text-align: left;
+            font-weight: bold
+        }
+
+        .panel-description {
+            color: green;
+            font-size: 15px;
+            text-align: center
+
+        }
+
+        .imgfit {
+            max-width: 50%;
+            max-height: 50%;
+            margin: auto;
+            display: block;
+        }
+
+        .margin-bottom15 {
+            margin-bottom: 15px;
+        }
+
+        .margin-left15 {
+            margin-left: 15px;
+        }
+
+        .margin-top-bottom15 {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<!-- NAVIGATION -->
+<nav class="navbar navbar-default" role="navigation" id="navbar">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span></button>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li class="nav_current_perspective">
+                <a href=""><img src="../img/icons/monitor_w.png">Monitor</a>
+            </li>
+            <li>
+                <a href=""><img src="../img/icons/survey.png">Summary</a>
+            </li>
+            <li>
+                <a href=""><img src="../img/icons/investigate.png">Security</a>
+            </li>
+        </ul>
+
+
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown" id="dropdown-user">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Christopher <img src="../img/admin.png"><b
+                        class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">Account Settings</a>
+                    </li>
+                    <li>
+                        <a href="#">Change Tenant</a>
+                    </li>
+                    <li>
+                        <a href="#">Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+</nav>
+<!-- END OF NAVIGATION -->
+
+
+<div>
+
+    <div class="row margin-bottom15">
+        <div class="col-md-4 ">
+            <h1 class="panel-title margin-left15"> Applications</h1>
+        </div>
+    </div>
+
+    <div class="row margin-bottom15">
+        <div class="col-md-4">
+            <div class="surveyCard" data-toggle="modal" data-target="#modalApplication">
+                <div>
+                    <img id="applicationPlus" src="../img/green-plus-sign.png" class="imgfit margin-top-bottom15"/>
+                </div>
+                <p class="panel-description margin-top-bottom15">Create a New Application</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row  margin-bottom15">
+        <div class="col-md-4 ">
+            <h1 class="panel-title margin-left15"> Clusters</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="surveyCard">
+                <div><img src="../img/green-plus-sign.png" class="imgfit margin-top-bottom15"/></div>
+                <p class="panel-description margin-top-bottom15">Discover a New Cluster</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Creating Modal Window -->
+<div class="modal fade" id="modalApplication" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header btn btn-primary" style="width:100%">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Create an Application</h4>
+            </div>
+
+            <div class="modal-body" class="col-xs-12">
+                <form role="form">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label for="inputName" class="control-label">Name</label>
+                            </div>
+                            <div class="col-xs-6">
+                                <input type="name" class="form-control" id="inputName" placeholder="Enter Name">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <label for="inputDescription" class="control-label">Description</label>
+                            </div>
+                            <div class="col-xs-12">
+                                <textarea id="inputDescription" class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <select id="jobs" name="jobSelect[]" multiple>
+                                <option>JobSet 1</option>
+                                <option>Job 2</option>
+                                <option>Job 3</option>
+                                <option>Job 4</option>
+                            </select>
+                            <script type="text/javascript" src="../js/custom-listbox.js"></script>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Add</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+
+            </form>
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal-content -->
+</div>
+<!-- /.modal -->
+
+</body>
+</html>

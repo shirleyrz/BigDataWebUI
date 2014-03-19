@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        Monitor-Perspective
+    </title>
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link href="../css/main.css" type="style/css" rel="stylesheet">
+    <style type="text/css">
+
+
+        .pointer:hover {cursor:pointer}
+
+        .panel-title{
+            color: black;
+            font-size: 20px;
+            text-align: left;
+            font-weight: bold
+        }
+
+        .panel-description{
+            color: green;
+            font-size: 15px;
+            text-align: center
+
+        }
+
+        .imgmid {
+            max-width:50%;
+            max-height:50%;
+            margin:auto;
+            display:block;
+        }
+
+        .margin-top15{
+            margin-top: 15px ;
+        }
+
+        .margin-bottom15{
+            margin-bottom: 15px ;
+        }
+
+        .margin-left15{
+            margin-left: 15px ;
+        }
+
+
+
+        .margin-top-bottom15{
+            margin-top: 15px ;
+            margin-bottom: 15px ;
+        }
+
+
+        .margin-top-bottom-left15{
+            margin-top: 15px ;
+            margin-bottom: 15px ;
+            margin-left: 15px ;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+<!-- NAVIGATION -->
+
+
+<nav class="navbar navbar-default" role="navigation" id="navbar">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><span class="sr-only">Toggle navigation</span> </button>
+    </div><!-- Collect the nav links, forms, and other content for toggling -->
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li class="nav_current_perspective">
+                <a href=""><img src="../img/icons/monitor_w.png">Monitor</a>
+            </li>
+            <li>
+                <a href=""><img src="../img/icons/survey.png">Summary</a>
+            </li>
+            <li>
+                <a href=""><img src="../img/icons/investigate.png">Security</a>
+            </li>
+        </ul>
+
+
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown" id="dropdown-user">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Christopher <img src="../img/admin.png"><b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">Account Settings</a>
+                    </li>
+                    <li>
+                        <a href="#">Change Tenant</a>
+                    </li>
+                    <li>
+                        <a href="#">Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</nav><!-- END OF NAVIGATION -->
+
+
+
+<div class="entry">
+    <h2>jSlider</h2>
+        <p>
+            Danger:
+            <select id='slider'>
+                <option value='1'>Very low</option>
+                <option value='2'>Low</option>
+                <option value='5' selected>Medium</option>
+                <option value='6'>High</option>
+                <option value='9'>Very hight</option>
+            </select>
+        </p>
+    </h3>
+</div>
+
+
+
+<div class="bs-example">
+    <div id="carousel-example-captions" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-captions" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-captions" data-slide-to="1"></li>
+            <li data-target="#carousel-example-captions" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="backupPages/4/image1.png" alt="First slide image">
+                <div class="carousel-caption">
+                    <h3>First slide label</h3>
+                </div>
+            </div>
+            <div class="item">
+                <img src="backupPages/4/image2.png" alt="Second slide image">
+                <div class="carousel-caption">
+                    <h3>Second slide label</h3>
+                </div>
+            </div>
+            <div class="item">
+                <img src="backupPages/4/image3.png" alt="Third slide image">
+                <div class="carousel-caption">
+                    <h3>Third slide label</h3>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#carousel-example-captions" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-captions" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+</div><!-- /example -->
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="/js/jquery.min.js"><\/script>')</script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="src/jslider2.js"></script>
+
+<script>
+    $().ready(function () {
+        $("#slider").jSlider({
+            colorSlider: "#90D5DA",
+            colorPointer: "#70B5BA",
+            colorMSTooltip: "#10959A",
+            colorMS: "yellow",
+            dimXSlider: 600,
+            dimYSlider: 8,
+            dimXPointer: 18,
+            dimYPointer: 18
+        });
+    });
+
+</script>
+</body>
+</html>

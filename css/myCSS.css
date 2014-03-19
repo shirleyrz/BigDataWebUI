@@ -1,0 +1,56 @@
+
+.pointer:hover {
+    cursor: pointer;
+
+}
+
+.panel-title {
+    color: black;
+    font-size: 150%;
+    text-align: left;
+    font-weight: bold
+}
+
+.panel-description {
+    color: green;
+    font-size: 110%;
+    text-align: center;
+}
+
+.divCenter {
+    line-height: 250px;
+    text-align: center;
+    vertical-align: middle
+}
+
+.chart .surveyCard {
+    height: 286px;
+    background-color: #ffffff;
+}
+
+
+.chart .surveyCard_chart {
+    background: transparent;
+}
+
+.surveyCard:hover {
+    box-shadow: inset 3px 3px 10px 2px #adadad;
+}
+
+.col-md-4 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.tag {
+    margin-left: 25px;
+}
+
+#tagForNewCluster, #tagForNewApp {
+    margin-bottom: 15px;
+}
+
+#Applications, #Clusters {
+    margin-bottom: 15px;
+}

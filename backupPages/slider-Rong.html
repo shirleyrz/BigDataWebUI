@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            font-size: 30px;
+            font-family: Arial;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            outline: none;
+        }
+
+        #gallery {
+            width: 600px;
+            margin: 10px auto;
+            background-color: #08c;
+            padding: 20px 20px 0 20px;
+        }
+
+        #gallery #largeImage {
+            border: 5px solid #23aef4;
+            margin: 0 0 20px 0;
+        }
+
+        ul {
+            list-style-type: none;
+            clear: both;
+        }
+
+        ul li {
+            display: inline;
+            margin: 0 0 0 45px;
+        }
+
+        ul .first {
+            margin: 0;
+        }
+
+        ul li a img {
+            border: 5px solid #23aef4;
+            height: 100px;
+            width: 100px;
+            margin: 0 0 20px 0;
+        }
+
+        ul li a img:hover {
+            border: 5px solid #fff;
+        }
+
+        h1 {
+            margin: 0 0 10px 0;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div id="wrapper">
+    <div id="gallery">
+
+        <h1>GALLERY</h1>
+        <img id="largeImage" src="img/image1.png" height="300" width="590"/>
+
+        <ul id="thumbs">
+
+            <li class="first"><a href="img/image1.png"><img src="img/image1.png"/></a></li>
+            <li><a href="img/image2.png"><img src="img/image2.png"/></a></li>
+            <li><a href="img/image3.png"><img src="img/image3.png"/></a></li>
+            <li><a href="img/image4.png"><img src="img/image4.png"/></a></li>
+
+            <li class="first"><a href="img/image1.png"><img src="img/image1.png"/></a></li>
+            <li><a href="img/image2.png"><img src="img/image2.png"/></a></li>
+            <li><a href="img/image3.png"><img src="img/image3.png"/></a></li>
+            <li><a href="img/image4.png"><img src="img/image4.png"/></a></li>
+
+        </ul>
+    </div>
+
+</div>
+<!--Wrapper End-->
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //TODO
+        var lia = $("#gallery #thumbs li a");
+        var largeImg = $("#largeImage");
+        lia.bind('mouseenter', function () {
+            largeImg.attr({src: $(this)
+                    .attr("href")})
+                    .css({opacity: 0})
+                    .animate({opacity:1}, 400)
+          ;
+            return false;
+        })
+
+    });
+</script>
+
+</body>
+</html>

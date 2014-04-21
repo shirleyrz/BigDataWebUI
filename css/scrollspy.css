@@ -1,0 +1,262 @@
+
+
+
+/*-----------------  Alerts  -------------------------*/
+.alerts{
+  text-align: center;
+  font-weight: bold;
+}
+
+/*Extreme Alert */
+.legend-red{
+  color: #cd003c;
+}
+
+/*Critical Alert */
+.legend-amber{
+  color: #e98300;
+}
+
+/*Serious Alert */
+.legend-orange{
+  color: #e05206;
+}
+
+/*Warning Alert */  
+.legend-yellow{
+  color: #f2b600;
+}
+
+/*-----------------  Chart label color codes  -------------------------*/
+h6.node1{
+            color: rgba(220,0,0,1);
+        }
+h6.node2{
+            color: rgba(0,0,105,1);
+        }
+h6.read{
+  color:rgba(0,0,105,1);
+}
+h6.write{
+  color:#f2b600;
+}
+h6.up{
+  color:rgba(220,0,0,1);
+}
+h6.down{
+  color:rgba(0,0,105,1);
+}
+
+.chartlabel{
+  text-align: center;
+  color: #0064af; /*Blue */
+  font-weight: bold;
+  margin-top: 0px;
+}
+
+.chartpanel{
+  position: relative;
+  width: 100%;
+  min-height:50px;
+  height:100%;
+  background-color: #fff;
+  /*margin-left: 60px;*/
+  overflow: hidden;
+  text-align: center;
+
+  -webkit-box-shadow: 0 8px 6px -6px #cbcbcb;
+     -moz-box-shadow: 0 8px 6px -6px #cbcbcb;
+          box-shadow: 0 8px 6px -6px #cbcbcb;
+}
+
+.label-used{
+   color: #cd003c;
+}
+
+.label-free{
+  color: #0064af;  
+}
+
+/*-----------------  Health Tab -------------------------*/
+.itemCategory{
+  font-weight: bold;
+  color: #777;
+};
+
+.panel{
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.panelHead{
+  color:#0064af; /*Blue Color */
+  font-weight: bold;
+}
+
+.lastUpdatedBy{
+  font-size: 9px;
+}
+
+.health{
+   overflow-y: scroll;
+   overflow-x: hidden;
+   height: 320px;
+   width: 600px;
+}
+
+body{
+  font-family: CA-Sans;
+}
+
+body .panel{
+  font-family: CA-Sans;
+  width: 500px;
+  margin-left: 50px;
+  margin-right: 10px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+/*-----------------  Jobs Tab -------------------------*/
+.jobs-chart,.job-info,.job-alerts,.job-alert-description  {
+  border-width: 1px;
+  background-color: white;
+}
+
+.jobs-chart{
+  height: 520px;
+  width: 100%;
+}
+
+.job-info{
+  height: 300px;
+  width: 310px;
+  margin-left: 30px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.job-alerts{
+  height: 300px;
+  width: 250px;
+  border-color: green;
+  margin-left: 30px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  overflow: auto;
+}
+
+.job-alert-description{
+  height: 200px;
+  width: 630px;
+}
+
+.job-info-title-box, .job-alerts-title-box {
+  margin-left: 30px;
+  margin-top: 10px;
+  color: rgba(128, 128, 128, 0.56);
+  font-weight: bold;
+}
+
+hr{
+  color: gray;
+}
+
+.job-info-jobtitle-head, .job-info-status-head, .job-info-jobduration-head, .job-info-cpu-head{
+  font-weight:bold;
+  font-size:12px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.alert-description-title, .alert-description-jobimpact, .alert-description-severity{
+  font-weight:bold;
+  font-size:12px;
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
+.job-info-jobtitle-content, .job-info-status-content, .job-info-jobduration-content, .job-info-cpu-content, 
+.alert-description-content-head, .alert-description-content-body>p{
+  margin-left: 10px;
+  font-size:12px;
+}
+
+.alert-date, .alert-time{
+  color: rgba(128, 128, 128, 0.56);
+  text-align: left;
+  font-size:12px;
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
+.alert-impact{
+  color: #cd003c;
+  margin-left: 10px;
+  font-size:12px;
+}
+
+.alert-severity{
+  margin-left: 10px;
+  font-size:12px;
+}
+
+/*-----------------  Security Tab -------------------------*/
+.seclabel{
+  text-align: center;
+  color: #0064af; /*Blue */
+  font-weight: bold;
+  margin-top: 0px;
+  margin-left: 20px;
+}
+
+.security-access,.security-violation,.security-details{
+  border-width: 1px;
+  background-color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 380px;
+  overflow: auto;
+}
+
+.sec-role, .sec-vio-title{
+  color: rgba(128, 128, 128, 0.56);
+}
+.sec-vio-title{
+  text-decoration: underline;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.sec-vio-content >p{
+  margin-left: 10px;
+}
+
+.active > .sec-role{
+  color:#DDDDDD;
+}
+
+.sec-details-name{
+  font-weight: bolder;
+  font-size: 40px;
+  margin-left: 10px;
+}
+
+.sec-details-role{
+  font-size: 20px;
+  font-weight: bold;
+  color: rgba(128, 128, 128, 0.56);
+  margin-left: 10px;
+}
+
+.sec-details-desc-title, .sec-details-ap-title{
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.sec-details-desc-content>p, .sec-details-ap-content{
+  margin-left: 20px;
+}

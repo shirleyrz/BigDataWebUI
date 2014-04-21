@@ -1,0 +1,633 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        Monitor-Perspective
+    </title>
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link href="css/main.css" type="style/css" rel="stylesheet">
+    <link href="css/scrollspy.css" type="style/css" rel="stylesheet">
+    <script src="js/Chart.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="/js/jquery.min.js"><\/script>')</script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/myJs.js"></script>
+</head>
+<body data-spy="scroll" data-target=".navbar-submenu">
+<!-- NAVIGATION -->
+<nav class="navbar navbar-default" role="navigation" id="navbar">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><span class="sr-only">Toggle navigation</span> </button>
+    </div><!-- Collect the nav links, forms, and other content for toggling -->
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li class="nav_current_perspective">
+                <a href=""><img src="img/icons/monitor_w.png">Monitor</a>
+            </li>
+            <li>
+                <a href=""><img src="img/icons/survey.png">Summary</a>
+            </li>
+            <li>
+                <a href=""><img src="img/icons/investigate.png">Security</a>
+            </li>
+        </ul>
+
+
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown" id="dropdown-user">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Christopher <img src="img/admin.png"><b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">Account Settings</a>
+                    </li>
+                    <li>
+                        <a href="#">Change Tenant</a>
+                    </li>
+                    <li>
+                        <a href="#">Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</nav><!-- END OF NAVIGATION -->
+
+<div class="row">
+    <div class="col-md-7">
+        <div class="navbar-submenu">
+            <ul class="nav nav-pills">
+              <li><a href="#charts" data-toggle="tab">Charts</a></li>
+              <li><a href="#health" data-toggle="tab">Health</a></li>
+              <li><a href="#jobs" data-toggle="tab">Jobs</a></li>
+              <li><a href="#security" data-toggle="tab">Security</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="row">
+            <div class="alerts col-md-3"><span class="legend-red"><span id="extreme-alert-count badge">4</span><br/>Extreme Alerts</span></div>
+            <div class="alerts col-md-3"><span class="legend-amber"><span id="critical-alert-count badge">12</span><br/>Critical Alerts</span></div>
+            <div class="alerts col-md-3"><span class="legend-yellow"><span id="serious-alert-count badge">24</span><br/>Serious Alerts</span></div>
+            <div class="alerts col-md-3"><span class="legend-orange"><span id="warning-alert-count badge">67</span><br/>Warnings Alerts</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- ScrollSpy Effect inner NavBar -->
+<div class="tab-content">
+  <div class="tab-pane active" id="charts">
+         <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="chartpanel">
+                       
+                            <div class="col-md-10">
+                                <canvas id="canvas1" height="250px" width="290px"></canvas>  
+                            </div>
+                            <div class="col-md-2">
+                                <h6 class="node1">Node 1</h6>
+                                <h6 class="node2">Node 2</h6>
+                            </div>
+                    </div>
+                    <br/>
+                    <div class="chartlabel col-md-12">
+                        Max CPU Usage
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="chartpanel">
+                        <div class="col-md-8">
+                            <canvas id="canvas2"  height="250px" width="290px"></canvas>
+                        </div>
+                        <div class="col-md-4">
+                            <h6 class="label-used"><span class="tbused"></span> TB Used (<span class="percentused"></span>%)</h6>
+                            <h6 class="label-free"><span class="tbfree"></span> TB Free</h6>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="chartlabel">
+                        HDFS Usage
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="chartpanel">
+                        <div class="col-md-8">
+                            <canvas id="canvas3"  height="250px" width="290px"></canvas>  
+                        </div>
+                        <div class="col-md-4">
+                            <h6 class="read">Read</h6>
+                            <h6 class="write">Write</h6>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="chartlabel">
+                        Disk I/O
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="chartpanel">
+                        <div class="col-md-8">
+                            <canvas id="canvas4" height="250px" width="290px"x></canvas>  
+                        </div>
+                        <div class="col-md-4">
+                            <h6 class="up">Up</h6>
+                            <h6 class="down">Down</h6>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="chartlabel">
+                        Network Usage
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+
+        var lineChartData1 = {
+            labels : ["12:00 PM","4:00 PM","8:00 PM","12:00 AM","04:00 AM","8:00 AM"],
+            datasets : [
+                {
+                    //fillColor : "rgba(220,220,220,0.5)",
+                    strokeColor : "rgba(220,0,0,1)",
+                    pointColor : "rgba(220,220,220,1)",
+                    pointStrokeColor : "#fff",
+                    data : [Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100)]
+                },
+                {
+                    //fillColor : "rgba(151,187,205,0.5)",
+                    strokeColor : "rgba(0,0,105,1)",
+                    pointColor : "rgba(151,187,205,1)",
+                    pointStrokeColor : "#fff",
+                    data : [Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100)]
+                },
+                {
+                    //fillColor : "rgba(151,187,205,0.5)",
+                    strokeColor : "#f2b600",
+                    pointColor : "rgba(151,187,205,1)",
+                    pointStrokeColor : "#fff",
+                    data : [Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100)]
+                }
+            ]
+
+        }
+
+        var lineChartData2 = {
+            labels : ["12:00 PM","4:00 PM","8:00 PM","12:00 AM","04:00 AM","8:00 AM"],
+            datasets : [
+                {
+                    //fillColor : "rgba(151,187,205,0.5)",
+                    strokeColor : "rgba(0,0,105,1)",
+                    pointColor : "rgba(151,187,205,1)",
+                    pointStrokeColor : "#fff",
+                    data : [Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100)]
+                },
+                {
+                    //fillColor : "rgba(151,187,205,0.5)",
+                    strokeColor : "#f2b600",
+                    pointColor : "rgba(151,187,205,1)",
+                    pointStrokeColor : "#fff",
+                    data : [Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100)]
+                }
+            ]
+
+        }
+
+        var lineChartData3 = {
+            labels : ["12:00 PM","4:00 PM","8:00 PM","12:00 AM","04:00 AM","8:00 AM"],
+            datasets : [
+                {
+                    //fillColor : "rgba(220,220,220,0.5)",
+                    strokeColor : "rgba(220,0,0,1)",
+                    pointColor : "rgba(220,220,220,1)",
+                    pointStrokeColor : "#fff",
+                    data : [Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100)]
+                },
+                {
+                    //fillColor : "rgba(151,187,205,0.5)",
+                    strokeColor : "rgba(0,0,105,1)",
+                    pointColor : "rgba(151,187,205,1)",
+                    pointStrokeColor : "#fff",
+                    data : [Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100)]
+                }
+            ]
+
+        }
+
+    var option = {  bezierCurve : false, datasetFill : false, pointDot : false};
+    var myLine = new Chart(document.getElementById("canvas1").getContext("2d")).Line(lineChartData1,option);
+    new Chart(document.getElementById("canvas3").getContext("2d")).Line(lineChartData2,option);
+    new Chart(document.getElementById("canvas4").getContext("2d")).Line(lineChartData3,option);
+
+    var total = 90;
+    var tbused = Math.floor(Math.random()*100);
+    var tbfree = total - tbused;
+    var doughChartData = [
+         {
+            value : tbfree,
+            color : "#0064af"
+        },
+        {
+            value : tbused,
+            color : "#cd003c"
+        }
+    ];
+    
+    $('.tbused').html(tbused);
+    $('.tbfree').html(tbfree);
+    var percentused = Math.round((tbused/total) * 100);
+    $('.percentused').html(percentused);
+
+     var option =  { segmentStrokeWidth : 1} ;
+     var mydough = new Chart(document.getElementById("canvas2").getContext("2d")).Doughnut(doughChartData,option);
+    //var mydough = new Chart($("#canvas2").getContext("2d")).Doughnut(doughChartData, option);
+
+   
+    </script>
+  </div>
+  <div class="tab-pane" id="health">
+    <div class="col-md-12" style="margin-left:30px; margin-right:30px">
+        <div class="row">
+            <div class="col-md-5">
+            
+            <div class="row">
+                <span class="itemCategory">Health and Configuration Issues</span>
+            </div>
+            
+            <div class="health">
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div>
+                            <span class="panelHead">
+                               Cluster Hearbeat
+                            </span>
+                            <span class="lastUpdatedBy pull-right">
+                               Last updated: 30 minutes ago.
+                            </span>
+                        </div>
+                        
+                        <div class="panelContent">
+                            <span class="contentDesciption">
+                                2 nodes did not return a heartbeat
+                            </span>
+                            <span class="statusColor pull-right">
+                                    <svg height="25" width="25">
+                                      <circle cx="12.5" cy="12.5" r="10" stroke="#999" stroke-width="3" fill="red" />
+                                    </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div>
+                            <span class="panelHead">
+                               HDFS Capacity
+                            </span>
+                            <span class="lastUpdatedBy pull-right">
+                               Last updated: 30 minutes ago.
+                            </span>
+                        </div>
+                        
+                        <div class="panelContent">
+                            <span class="contentDesciption">
+                                HDFS usage is under 60%.
+                            </span>
+                           <span class="statusColor pull-right">
+                                    <svg height="25" width="25">
+                                      <circle cx="12.5" cy="12.5" r="10" stroke="#999" stroke-width="3" fill="blue" />
+                                    </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+                
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div>
+                            <span class="panelHead">
+                              Overloaded Nodes
+                            </span>
+                            <span class="lastUpdatedBy pull-right">
+                               Last updated: 30 minutes ago.
+                            </span>
+                        </div>
+                        
+                        <div class="panelContent">
+                            <span class="contentDesciption">
+                                No nodes have a critical CPU Usage discrepancy.
+                            </span>
+                            <span class="statusColor pull-right">
+                                    <svg height="25" width="25">
+                                      <circle cx="12.5" cy="12.5" r="10" stroke="#999" stroke-width="3" fill="green" />
+                                    </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+                
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div>
+                            <span class="panelHead">
+                               Disk I/O
+                            </span>
+                            <span class="lastUpdatedBy pull-right">
+                               Last updated: 30 minutes ago.
+                            </span>
+                        </div>
+                        
+                        <div class="panelContent">
+                            <span class="contentDesciption">
+                                The Disk has had an unusual number of reads without any writes.
+                            </span>
+                            <span class="statusColor pull-right">
+                                    <svg height="25" width="25">
+                                      <circle cx="12.5" cy="12.5" r="10" stroke="#999" stroke-width="3" fill="yellow" />
+                                    </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <span class="panelHead">
+                           HDFS Capacity
+                        </span>
+                        <span class="lastUpdatedBy pull-right">
+                           Last updated: 30 minutes ago.
+                        </span>
+                        <div class="panelContent">
+                            <span class="contentDesciption">
+                                HDFS Capacity under 60%
+                            </span>
+                            <span class="statusColor pull-right">
+                                    <svg height="25" width="25">
+                                      <circle cx="12.5" cy="12.5" r="10" stroke="#999" stroke-width="3" fill="blue" />
+                                    </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            </div> <!-- END OF HEALTH DIV -->
+        
+        </div> <!-- END OF col-md-5 -->
+        
+        <div class="col-md-1"></div>
+
+        <div class="col-md-5">
+            <div class="row">
+                 <span style="font-weight:bold; color:#777">Recent Commands</span>
+            </div>
+            
+            <div class="health">
+                <div class="row">
+                    <div class="panel panel-default">
+                    <div class="panel-body">
+                        <span class="panelHead">
+                           Restart
+                        </span>
+                        <span class="lastUpdatedBy pull-right">
+                           Issued: Feb 24, 2014 12:58:08 PM EST
+                             <br/>
+                           Completed: Feb 24, 2014 12:59:08 PM EST
+                        </span>
+                        <div class="panelContent">
+                           <span class="contentDesciption">
+                                Failed to restart.<br/>
+                            </span>
+                            <span class="statusColor pull-right">
+                                    <svg height="25" width="25">
+                                      <circle cx="12.5" cy="12.5" r="10" stroke="#999" stroke-width="3" fill="green" />
+                                    </svg>
+                            </span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                
+
+                <div class="row">
+                    <div class="panel panel-default">
+                    <div class="panel-body">
+                        <span class="panelHead">
+                          Start
+                        </span>
+                        <span class="lastUpdatedBy pull-right">
+                           Issued: Feb 24, 2014 12:58:08 PM EST
+                             <br/>
+                           Completed: Feb 24, 2014 12:59:08 PM EST
+                        </span>
+                        <div class="panelContent">
+                            <span class="contentDesciption">
+                               Successfully started. <br/>
+                            </span>
+                            <span class="statusColor pull-right">
+                                    <svg height="25" width="25">
+                                      <circle cx="12.5" cy="12.5" r="10" stroke="#999" stroke-width="3" fill="black" />
+                                    </svg>
+                            </span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+  </div>
+  
+
+  <div class="tab-pane" id="jobs">
+    <div class="row">
+        <div class="col-md-6 jobs-chart panel">
+            <div>
+                Chart
+                <svg width="100%" height="100%">
+                    <!-- <circle cx="160" cy="110" r="100" stroke="green" stroke-width="4" fill="yellow" /> -->
+                </svg>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="job-info">
+                        <span class="job-info-title-box">Job Info</span>
+                        <hr/>
+                        <span class="job-info-jobtitle-head">JobTitle</span><br/>
+                        <span class="job-info-jobtitle-content">Collect Weather Data</span><br/><br/>
+                        <span class="job-info-status-head">Completion Status</span><br/>
+                        <span class="job-info-status-content" style="color:#cd003c">Falied</span><br/><br/>
+                        <span class="job-info-jobduration-head">Job Duration</span><br/>
+                        <span class="job-info-jobduration-content">20 minutes</span><br/><br/>
+                        <span class="job-info-cpu-head">Average CPU Usage</span><br/>
+                        <span class="job-info-cpu-content">30%</span><br/><br/>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="job-alerts">
+                        <span class="job-alerts-title-box">Alerts</span><br/>
+                        <hr/>
+                        <div class="list-group job-alerts-content">
+                          <a href="#" class="list-group-item active">
+                            Network Connection Lost
+                          </a>
+                          <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+                          <a href="#" class="list-group-item">Morbi leo risus</a>
+                          <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+                          <a href="#" class="list-group-item">Vestibulum at eros</a>
+                          <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+                          <a href="#" class="list-group-item">Morbi leo risus</a>
+                          <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+                          <a href="#" class="list-group-item">Vestibulum at eros</a>
+                          <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+                          <a href="#" class="list-group-item">Morbi leo risus</a>
+                          <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+                          <a href="#" class="list-group-item">Vestibulum at eros</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="job-alert-description">
+                        
+                        <div class="row">
+                            <div class="col-md-8">
+                                <span class="alert-description-title">Alert: Network Connection Lost</span>
+                                <br/>
+                                <span class="alert-date">March 12, 2014</span>
+                                <span class="alert-time">12:24:40</span>
+                            </div>
+                            <div class="col-md-2">
+                                <span class="alert-description-jobimpact">Job Impact</span>
+                                <span class="alert-impact">Failure</span>
+                            </div>
+                            <div class="col-md-2">
+                                <span class="alert-description-severity">Severity</span>
+                                <span class="alert-severity">Severe</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <span class="alert-description-content-head" style="font-weight:bold">Description</span><br/>
+                                <span class="alert-description-content-body">
+                                    <p>The network connection was lost while the appliance was performing a job. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+  </div>
+
+
+  <div class="tab-pane" id="security">
+      <div class="row">
+          <div class="col-md-3">
+            <span class="seclabel">Access Requests</span>
+            <div class="security-access">
+                <div class="list-group sec-ar-content">
+                  <a href="#" class="list-group-item">
+                        <span class="ar-name">John Smith</span><br/>
+                        <span class="sec-role">Data Scientist</span>
+                  </a>
+                  <a href="#" class="list-group-item">
+                        <span class="ar-name">John Doe</span><br/>
+                        <span class="sec-role">Data Researcher</span>
+                  </a>
+                  <a href="#" class="list-group-item active">
+                        <span class="ar-name">Dan Harmon</span><br/>
+                        <span class="sec-role">Nosy Employee</span>
+                  </a>
+                  <a href="#" class="list-group-item">Vestibulum at eros</a>
+                  <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+                  <a href="#" class="list-group-item">Morbi leo risus</a>
+                  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+                  <a href="#" class="list-group-item">Vestibulum at eros</a>
+                  <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+                  <a href="#" class="list-group-item">Morbi leo risus</a>
+                  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+                  <a href="#" class="list-group-item">Vestibulum at eros</a>
+                </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <span class="seclabel">Violations</span>
+            <div class="security-violation">
+                
+                <span class="sec-vio-title">
+                    Violations for Selected Data
+                </span><br/>
+                
+                <span class="sec-vio-content">
+                    <p>Tried to run a query on restricted data</p>
+                </span>
+                
+
+                <span class="sec-vio-title">
+                    Other Violations
+                </span><br/>
+                <span class="sec-vio-content">
+                    <p>Restricted query on Weather at Friend&apos;s Location</p>
+                </span>
+                <br/>
+
+            </div>
+          </div>
+          <div class="col-md-6">
+            <span class="seclabel">Details</span>
+            <div class="security-details">
+                <span class="sec-details-name">Dan Harmon</span><br/>
+                <span class="sec-details-role">Nosy Employee</span><br/><br/>
+                <span class="sec-details-desc-title">Description</span>
+                <span class="sec-details-desc-content">
+                    <p>Dan Harmon has been an employee for 5 years.
+                    </p></span><br/>
+                <span class="sec-details-ap-title">Assigned Projects</span>
+                <span class="sec-details-ap-content">
+                    <ul>
+                        <li>MAM iPad App</li>
+                        <li>Chorus Stirage</li>
+                        <li>Big Data Anomaly Detection</li>
+                    </ul>
+                </span>
+            </div>
+          </div>
+      </div>
+  </div>
+
+</div>
+
+
+
+<!--<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>-->
+<!--<script type="text/javascript" src="js/bootstrap.js"></script>-->
+
+
+</body>
+
+</html>

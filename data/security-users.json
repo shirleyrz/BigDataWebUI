@@ -1,0 +1,62 @@
+[
+	{
+		"user_name": "John Smith",
+		"role": "Data Scientist",
+		"violations":[
+			{
+				"vio_title" : "Violations for Selected Data",
+				"vio_details":"Tried to run a query on restricted data"
+			},
+			{
+				"vio_title" : "Other Violations",
+				"vio_details":"Restricted query on Weather at Friend's Location"
+			}
+		],
+		"details":[
+			{
+				"desc":"John Smith has been an employee for 5 years.",
+				"assigned_projects": ["MAM iPad App", "Chorus Stirage", "Big Data Anomaly Detection"]
+			}
+		]
+	},
+	{
+		"user_name": "Dan Harmon",
+		"role": "Nosy Employee",
+		"violations":[
+			{
+				"vio_title" : "Red Alert Violation",
+				"vio_details":"Random violations caused red alerts"
+			},
+			{
+				"vio_title" : "Common Violations",
+				"vio_details":"jnckjnekruvn cnekldneckre fcneklrncerjn fcfjejdk"
+			}
+		],
+		"details":[
+			{
+				"desc":"Dan Harmon has been an employee for 5 years.",
+				"assigned_projects": ["None"]
+			}
+		]
+	},
+	{
+		"user_name": "Tom Harry",
+		"role": "Data Researcher",
+		"violations":[
+			{
+				"vio_title" : "Red Alert",
+				"vio_details":"Created Sev 1 Issue"
+			},
+			{
+				"vio_title" : "Other Violations",
+				"vio_details":"Many other violations exists"
+			}
+		],
+		"details":[
+			{
+				"desc":"Tom is new employee and under training",
+				"assigned_projects": ["Yet to assign projects"]
+			}
+		]
+	}
+]

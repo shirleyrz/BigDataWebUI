@@ -4,53 +4,82 @@ Developer: Sree
 This is the javascript file to support the content loading in the scrollspy and handling the interaction between the tabs.
 */
 
-//global variables - needed in many function throughout
-var mydata, vio, item;
 
+/*Jobs Tab */
+
+//global variables - needed in many function throughout
+var jobdata;
 //Code to parse the JSON file
-$.getJSON( "data/security-users.json", function( json ) {
-	mydata = json;
-	createAccessRequest(mydata);
+$.getJSON( "data/jobs-alerts-scrollspy.json", function( json ) {
+	jobdata = json;
+	console.log(jobdata[0]);
+	populateJobInfo(jobdata[0]);
+	populateJobAlert(jobdata[0].alerts);
  });
 
-//This function called through onclick events to handle the interactions and dynamic content loading
-function itemHandler(index, type){
-	switch (type){
-		case 0: //ar
-			//Remove the active class on all the item of ar
-			$('a.ar').removeClass("active");
-			//Add the active class for the selected item
-			$('a.ar:eq('+index+')').addClass("active");
-			//Create violations
-			createViolations(mydata[index]);
-			//Update the Details
-			displayDetails(mydata[index], type);
-			break;
-		case 1: //vio
-			//Remove the active class on all the item of vio
-			$('a.vio').removeClass("active");
-			//Add the active class for the selected item
-			$('a.vio:eq('+index+')').addClass("active");
-			//Update the Details
-			displayDetails(mydata[index], type);
-	}
+//function populates the job info container
+function populateJobInfo(infodata){
+	$(".job-info-jobtitle-content").html(infodata.job_title);
+	$(".job-info-status-content").html(infodata.comp_status);
+	$(".job-info-jobduration-content").html(infodata.job_duration);
+	$(".job-info-cpu-content").html(infodata.avg_cpu_usage);
 }
 
+//function to populate alert container
+function populateJobAlert(alertdata){
+	var alert_item="";
+	var type= 2; //"jalert";
+	console.log("alertdata"+alertdata);
+	for (var itr=0;itr<alertdata.length;itr++){
+		//console.log("Alert Name"+alertdata[itr].alert_name);
+		if(itr==0) {
+			alert_item += "<a href='#' class='list-group-item active jalert' onclick='itemHandler("+itr+", "+type+" )'>"+alertdata[itr].alert_name+"</a>";
+			alertDescription(alertdata[itr]);
+		}
+		else{
+			alert_item += "<a href='#' class='list-group-item jalert' onclick='itemHandler("+itr+", "+type+" )'>"+alertdata[itr].alert_name+"</a>";
+		}
+		
+	}
+	console.log("Job alerts:"+alert_item);
+	$(".job-alerts-content").html(alert_item);
+}
+
+function alertDescription(alertdesc){
+	$(".alert-description-title").html("Alert: "+alertdesc.alert_name);
+	$(".alert-date").html(alertdesc.alert_date);
+	$(".alert-time").html(alertdesc.alert_time);
+	$(".alert-impact").html(alertdesc.job_impact);
+	$(".alert-severity").html(alertdesc.severity);
+	$(".alert-description-content-body").html("<p>"+alertdesc.desc+"</p>");
+}
+
+
+//Security Tab
+
+//global variables - needed in many function throughout
+var secdata, vio, item;
+//Code to parse the JSON file
+$.getJSON( "data/security-users.json", function( json ) {
+	secdata = json;
+	createAccessRequest(secdata);
+ });
+
 //This function populates the Access Request Container
-function createAccessRequest (mydata){
+function createAccessRequest (secdata){
 	var type = 0;//'ar'
-	for (i=0;i<mydata.length;i++){
-		console.log(mydata[i].user_name);
+	for (var i=0;i<secdata.length;i++){
+		console.log(secdata[i].user_name);
 		if (i==0) {
 			item = "<a href='#' class='list-group-item active ar' onclick='itemHandler("+i+", "+type+" )'>";
-			createViolations(mydata[i]);
-			displayDetails(mydata[i], type);
+			createViolations(secdata[i]);
+			displayDetails(secdata[i], type);
 		}
 		else{
 			item = "<a href='#' class='list-group-item ar' onclick='itemHandler("+i+", "+type+" )'>";
 		} 
-		item += "<span class='ar-name'>"+mydata[i].user_name+"</span><br/>";
-        item += "<span class='sec-role'>"+mydata[i].role+"</span>";
+		item += "<span class='ar-name'>"+secdata[i].user_name+"</span><br/>";
+        item += "<span class='sec-role'>"+secdata[i].role+"</span>";
         item += "</a>";
 		$("div.sec-ar-content").append(item);
 	}
@@ -106,6 +135,44 @@ function displayDetails(detdata, type){
 			det_item += "<br/><span class='sec-details-desc-title'>Violation Info</span><br/>";
 			det_item += "<span class='sec-details-desc-content'><p>"+vio[d].vio_details+"</p></span><br/>";
 			$(".sec-details-vio").html(det_item);
+			break;
+	}
+}
+
+
+//This function called through onclick events to handle the interactions and dynamic content loading
+/*
+type= 0; //"security ar";
+type= 1; //"security vio";
+type= 2; //"job-alerts";
+*/
+function itemHandler(index, type){
+	switch (type){
+		case 0: //ar
+			//Remove the active class on all the item of ar
+			$('a.ar').removeClass("active");
+			//Add the active class for the selected item
+			$('a.ar:eq('+index+')').addClass("active");
+			//Create violations
+			createViolations(secdata[index]);
+			//Update the Details
+			displayDetails(secdata[index], type);
+			break;
+		case 1: //vio
+			//Remove the active class on all the item of vio
+			$('a.vio').removeClass("active");
+			//Add the active class for the selected item
+			$('a.vio:eq('+index+')').addClass("active");
+			//Update the Details
+			displayDetails(secdata[index], type);
+			break;
+		case 2: //job-alerts
+		 	//Remove the active class on all the item of job alerts
+		 	$('a.jalert').removeClass("active");
+		// 	//Add the active class for the selected item
+		 	$('a.jalert:eq('+index+')').addClass("active");
+		 	//Update the Details
+			alertDescription(jobdata[0].alerts[index]);
 			break;
 	}
 }

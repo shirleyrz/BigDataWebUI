@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.brush .extent {
+  stroke: #000;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}
+
+</style>
+
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+var colorRed = "#A1152C", colorYellow = "#F2B600", colorGreen = "#14AA13";
+colorRed = "rgb(161, 21, 44)";
+var pie, donut_data, path;
+var redAlerts = 0, yellowAlerts = 0, greenAlerts = 0;
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 1300 - margin.left - margin.right,
+    height =150 - margin.top - margin.bottom,
+    radius = Math.min(width, height) / 2;
+
+// var color = d3.scale.ordinal()
+//     .range(["Red", "Yellow", "Green"]);
+
+//This interval [0, width] is subdivided into n evenly-spaced bands and the second arguement is the padding from extremes
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .5);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+    //.ticks(10, "%");
+
+var data, arc, g;
+
+//brush variables
+brush = d3.svg.brush()
+    .x(x).on("brush", brushended);
+   
+//adding graph elements to the body
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+//LOAD FROM DATA FILE
+d3.tsv("data/data.tsv", type, function(error, data) {
+  x.domain(data.map(function(d) { return d.letter; }));
+  y.domain([0, d3.max(data, function(d) { return d.frequency+0.2; })]);
+
+  //ADD X AXIS
+  svg.append("g")
+      .attr("class", "x axis")
+      //.attr("transform", "translate(0," +  0 + ")")
+      .attr("transform", "translate(0," + 0 + ")")
+      .call(xAxis);
+
+  //Hide some labels and tick marks
+  //$("g.tick > text").style("visibility:hidden");
+  $("g.tick > line").each(function( index, element ) { 
+    //Hide the tick marks
+    element.style["visibility"] = "hidden";
+    if(index%4==0) element.style["visibility"] = "visible";
+  });
+  $("g.tick > text").each(function( index, element ) { 
+    //Hide the tick marks
+    element.style["visibility"] = "hidden";
+    if(index%4==0) element.style["visibility"] = "visible";
+  });
+
+  //ADD BARS
+  svg.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", function(d) { return setDataBarClass(d.frequency); }) //"bar data-bar" + ())
+      .attr("x", function(d) { return x(d.letter); })
+      .attr("width", x.rangeBand()/2) //To modify the width of the bar
+      .attr("y", function(d) { return y(d.frequency); })
+      .attr("freq", function(d) { return d.frequency; })
+      .attr("letter", function(d) { return d.letter; })
+      .attr("height", function(d) { return height - y(d.frequency); })
+      .style("fill",function(d){ return setBarColor(d.frequency) })
+      .on("click",function(d) { callMouseOverhandler(d.letter,d.frequency); return 1;});
+  console.log("Red:"+redAlerts+" Yellow: "+yellowAlerts+"Green: "+greenAlerts);
+
+  // svg.selectAll(".bar")
+  //     .data(data)
+  //   .enter().append("rect")
+  //     .attr("class", "bar")
+  //     .attr("x", function(d) { return x(d.letter); })
+  //     .attr("width", x.rangeBand())
+  //     .attr("y", function(d) { return height - y(d.frequency); })
+  //     .attr("freq", function(d) { return d.frequency; })
+  //     .attr("letter", function(d) { return d.letter; })
+  //     .attr("height", function(d) { return y(d.frequency); })
+  //     .style("fill",function(d){ return setBarColor(d.frequency) })
+  //     .on("click",function(d) { callMouseOverhandler(d.letter,d.frequency); return 1;});
+  // console.log("Red:"+redAlerts+" Yellow: "+yellowAlerts+"Green: "+greenAlerts);
+  //ADDING DONUTS TO SVG
+  createDonut();
+  console.log("Donut Created"+donut_data);
+});
+
+function createDonut(){
+
+  //Dimensions
+  var donut_width = 960,
+    donut_height = 500,
+    radius = Math.min(donut_width, donut_height) / 2; 
+  
+  //Define the inner and outer radius of the donut
+  arc = d3.svg.arc()
+    .innerRadius(radius - 100)
+    .outerRadius(radius - 20);
+
+  donut_data =  [
+              {"alert": "red", "value": redAlerts},
+              {"alert": "yellow", "value": yellowAlerts},
+              {"alert": "green", "value": greenAlerts}
+            ];
+
+  var color = d3.scale.ordinal()
+    .range(["#A1152C","#14AA13","#F2B600"]);
+    //.range(["#A1152C","#F2B600","#14AA13"]);
+
+  //define the quantity that pie should look for when we map it with the data
+  pie = d3.layout.pie()
+      .sort(null)
+      .value(function(d) { return d.value; });
+
+  console.log("Json Contents: "+donut_data);
+  
+  svg = d3.select("body").append("svg")
+    .attr("width", donut_width)
+    .attr("height", donut_height)
+    .attr("class","donut")
+    .append("g")
+    .attr("transform", "translate(" + donut_width / 2 + "," + donut_height / 2 + ")");
+
+  //Actual drawing of pie takes place here
+  path = svg.datum(donut_data).selectAll("path") // Creates a path tag if not there
+           .data(pie) // Loads the data into the function
+           .enter().append("path") //For every datum it creates the path tag with the mentioned attributes
+              .attr("fill",function(d,i){ return color(i);}) //defining color
+              .attr("d",arc) //drawing the arc, arc is the initial angles
+              .each(function(d) { this._current = d; }); //storing the arc value for transition purposes
+  
+  // g = svg.selectAll(".arc")
+  //     .data(pie(data))
+  //     .enter().append("g")
+  //     .attr("class", "arc");
+
+  //     g.append("path")
+  //         .attr("d", arc)
+  //         .style("fill", function(d) { return color(d.data.value);});
+  //         // .style("fill", function(d) { return setPieColor(d.data.value) });
+
+  //     g.append("text")
+  //         .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+  //         .attr("class","arcLabel")
+  //         .attr("dy", ".35em")
+  //         // .attr("dx", "-3.5em")
+  //         .style("text-anchor", "middle")
+  //         .text(function(d) { return d.data.value; });
+}
+
+
+//ADDING BRUSH TO SVG
+var gBrush = svg.append("g")
+    .attr("class", "brush")
+    .call(brush)
+    .call(brush.event);
+    // .on("brushend",brushend);
+
+gBrush.selectAll("rect")
+    .attr("height", height);
+
+function brushended() {
+  console.log("Brush Event Ends");
+  var brush_start = brush.extent()[0];
+  var brush_end = brush.extent()[1];
+  console.log("start location of brush: "+brush_start);
+  console.log("end location of brush: "+brush_end);
+
+  var allBars = d3.selectAll("rect").filter(".data-bar")[0];
+  //var allBars = d3.selectAll("rect").filter(".bar")[0];
+  redAlerts = 0; yellowAlerts = 0; greenAlerts = 0;
+  
+  for (var i = allBars.length - 1; i >= 0; i--) {
+    if(brush_start <= allBars[i].x.animVal.value && brush_end >= allBars[i].x.animVal.value){
+      switch($(allBars[i]).attr("class").split(" ")[2]){
+        case "color-red": //Red
+                        redAlerts+= parseFloat($(allBars[i]).attr('freq'));
+                        break; 
+        case "color-yellow": //Yellow
+                        yellowAlerts+= parseFloat($(allBars[i]).attr('freq'));
+                        break; 
+        case "color-green": //Green
+                        greenAlerts+= parseFloat($(allBars[i]).attr('freq'));
+                        break; 
+      }
+    }
+  }
+  console.log("Summary: "+"Red:"+redAlerts+" Yellow:"+yellowAlerts+" Green:"+greenAlerts);
+  tweekDonut(redAlerts, greenAlerts, yellowAlerts)
+}
+
+function setPieColor (f) {
+  console.log("setPieColor"+setBarColor(f));
+  return setBarColor(f);
+}
+
+function setBarColor(f){
+  if(f<0.04) {
+    greenAlerts+=f;
+    return colorGreen;
+  }
+  if(f>0.07)  {
+    redAlerts+=f;
+    return colorRed;
+  } 
+  else{
+    yellowAlerts+=f;
+    return colorYellow;
+  }
+}
+
+function setDataBarClass(f){
+  var defaultClass = "bar data-bar ";
+  if(f<0.04) {
+    defaultClass+="color-green";
+    return defaultClass;
+  }
+  if(f>0.07)  {
+    defaultClass+="color-red";
+    return defaultClass;
+  } 
+  else{
+    defaultClass+="color-yellow";
+    return defaultClass;
+  }
+}
+
+function callMouseOverhandler(f,l){
+  console.log("Called Mouse Over function"+l+f);
+}
+
+function type(d) {
+  d.frequency = +d.frequency;
+  return d;
+}
+
+
+function tweekDonut(redAlerts, greenAlerts, yellowAlerts){
+  console.log("Tweeking the donuts");
+  try{
+    donut_data[0].value = Math.round(redAlerts*100);
+    donut_data[1].value = Math.round(greenAlerts*100);
+    donut_data[2].value = Math.round(yellowAlerts*100);
+    pie.value(function(d) { return d.value; }); // change the value function
+    path = path.data(pie); // compute the new angles
+    console.log("New angles computed");
+    path.transition().duration(750).attrTween("d", arcTween); // redraw the arcs  
+  }
+  catch(e){
+    console.log("Exception"+e);
+  }
+}
+
+function arcTween(a) {
+  console.log(a);
+  try{
+    var i = d3.interpolate(this._current, a);
+    this._current = i(0);
+    console.log(i);
+
+    return function(t) {
+      console.log(t);
+      return arc(i(t));
+    };
+  }
+  catch(e){
+    console.log(e);
+  }
+  
+}
+
+// function updateDonut(newAlerts){
+  
+//   try{
+//     console.log(data);
+//     for (var i = data.length - 1; i >= 0; i--) {
+//       console.log(data[i].value);
+//       data[i].value = newAlerts[i];
+//     };
+//     console.log(data);
+//   }
+//   catch(e){
+//     console.log(e);
+//   }
+  
+// }
+
+</script>

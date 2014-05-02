@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.brush .extent {
+  stroke: #000;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}
+
+</style>
+
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 1300 - margin.left - margin.right,
+    height = 200 - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+    //.ticks(10, "%");
+
+brush = d3.svg.brush()
+    .x(x).on("brush", brushended);
+   
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.tsv("data.tsv", type, function(error, data) {
+  x.domain(data.map(function(d) { return d.letter; }));
+  y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + 0 + ")")
+      .call(xAxis);
+
+  svg.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d.letter); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.frequency); })
+      .attr("height", function(d) { return height - y(d.frequency); })
+      .style("fill",function(d){ return setBarColor(d.frequency) })
+      .on("click",function(d) { callMouseOverhandler(d.letter,d.frequency); return 1;});
+});
+
+var gBrush = svg.append("g")
+    .attr("class", "brush")
+    .call(brush)
+    .call(brush.event);
+    // .on("brushend",brushend);
+
+gBrush.selectAll("rect")
+    .attr("height", height);
+
+function brushended() {
+  console.log("Brush Event Ends");
+  var brush_start = brush.extent()[0];
+  var brush_end = brush.extent()[1];
+  console.log("start location of brush: "+brush_start);
+  console.log("end location of brush: "+brush_end);
+
+  var allBars = d3.selectAll("rect").filter(".bar")[0];
+  var redAlerts = 0, yellowAlerts = 0, greenAlerts = 0;
+  
+  for (var i = allBars.length - 1; i >= 0; i--) {
+    if(brush_start <= allBars[i].x.animVal.value && brush_end >= allBars[i].x.animVal.value){
+      // console.log(" X:"+allBars[i].x.animVal.value);
+      // console.log(" Y:"+ (height - allBars[i].y.animVal.value));
+      // console.log(" Fill:"+ allBars[i].style["fill"]);
+
+      switch(allBars[i].style["fill"]){
+        case "#ff0000": //Red
+                        redAlerts+= height - allBars[i].y.animVal.value;
+                        break; 
+        case "#ffff00": //Yellow
+                        yellowAlerts+= height - allBars[i].y.animVal.value;
+                        break; 
+        case "#008000": //Green
+                        greenAlerts+= height - allBars[i].y.animVal.value;
+                        break; 
+      }
+    }
+  }
+  console.log("Summary: "+"Red:"+redAlerts+" Yellow:"+yellowAlerts+" Green:"+greenAlerts);
+}
+
+function setBarColor(f){
+  if(f<0.04) 
+    return "green";
+  if(f>0.07)
+    return "red";
+  else
+    return "yellow";
+}
+
+function callMouseOverhandler(f,l){
+  console.log("Called Mouse Over function"+l+f);
+}
+function type(d) {
+  d.frequency = +d.frequency;
+  return d;
+}
+
+</script>

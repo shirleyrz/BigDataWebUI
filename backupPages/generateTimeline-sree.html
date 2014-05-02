@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+	<head>
+		<title>Generate Random No</title>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			//Generate Random No
+			var start_h = 12, start_min=0, ctr_hr = start_h, ctr_min = start_min, disp_hr, disp_min;
+			var rAlert = gAlert = yAlert = 0;
+			var count = 100;
+			var jSonData = {
+				logItem: []
+			};
+
+			for (var i = 0; i < count; i++) {
+					ctr_min += Math.round(Math.random()*100)%60;
+					rAlert = Math.round(Math.random()*10);
+					gAlert = Math.round(Math.random()*10);
+					yAlert = Math.round(Math.random()*10);
+
+					if(ctr_min>=60){
+						ctr_min = 0;
+						ctr_hr += 1; 
+					}
+					if(ctr_hr>=24){
+						ctr_hr = 0;
+					}
+					disp_hr = (ctr_hr>9)?ctr_hr:"0"+ctr_hr;
+					disp_min = (ctr_min>9)?ctr_min:"0"+ctr_min;
+					itr_time = disp_hr + ":" + disp_min;
+					//console.log(itr_time +"	"+rAlert+"	"+yAlert+"	"+gAlert);
+					jSonData.logItem.push({
+							"logtime" 		: itr_time,
+							"logId"			: i,
+							"redAlerts"		: rAlert,
+							"yellowAlert"	: yAlert,
+							"greenAlert"	: gAlert,
+						});
+					
+				}
+				console.log(JSON.stringify(jSonData));
+		</script>
+	</head>
+	<body>
+		<h1>Check at Console</h1>
+	</body>
+</html>

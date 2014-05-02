@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: auto;
+  position: relative;
+  width: 960px;
+}
+
+text {
+  font: 10px sans-serif;
+}
+
+form {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+</style>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<body>
+ 
+<script>
+var width = 960,
+    height = 500,
+    radius = Math.min(width, height) / 2;
+
+//Define the inner and outer radius of the donut
+var arc = d3.svg.arc()
+    .innerRadius(radius - 100)
+    .outerRadius(radius - 20);
+
+var mydata = [{
+    "crimeType": "mip",
+    "totalCrimes": 24
+}, {
+    "crimeType": "theft",
+    "totalCrimes": 558
+}, {
+    "crimeType": "drugs",
+    "totalCrimes": 81
+}, {
+    "crimeType": "arson",
+    "totalCrimes": 3
+}, {
+    "crimeType": "other",
+    "totalCrimes": 58
+}];
+
+//Set of predefined colors to use for the pie chart
+var color = d3.scale.category20();
+
+//define the quantity that pie should look for when we map it with the data
+var pie = d3.layout.pie()
+    .value(function(d) { return d.totalCrimes; })
+    .sort(null);
+
+//Create a svg element with the defined dimension, along with it the g element as child with the dimensions transformed so that it can fit inside the svg element
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")"); 
+
+//Actual drawing of pie takes place here
+var path = svg.datum(mydata).selectAll("path") // Creates a path tag if not there
+           .data(pie) // Loads the data into the function
+           .enter().append("path") //For every datum it creates the path tag with the mentioned attributes
+              .attr("fill",function(d,i){ return color(i);}) //defining color
+              .attr("d",arc) //drawing the arc, arc is the initial angles
+              .each(function(d) { this._current = d; }); //storing the arc value for transition purposes
+
+d3.selectAll("input")
+      .on("click", change);
+
+function change(){
+  console.log(mydata);
+  console.log("Before Change "+mydata[1].totalCrimes);
+  console.log("Operation: mydata[1].totalCrimes = 10;");
+  mydata[1].totalCrimes = 10;
+  console.log("After Change "+mydata[1].totalCrimes);
+  //alert("Clicked");
+}
+
+</script>

@@ -1,7 +1,7 @@
 @font-face
 {
 font-family: CA;
-src: url('CA Sans-Regular.ttf');
+src: url('../fonts/CA Sans-Regular.ttf');
 }
 html{
 	padding: 0;
@@ -15,6 +15,7 @@ body{
 	padding: 0;
 	margin: 0;
 	width: 100%;
+    overflow: hidden;
 }
 
 /*-----------------  Navigation  -------------------------*/

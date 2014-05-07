@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        Screen 4
+    </title>
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="/js/jquery.min.js"><\/script>')</script>
+
+    <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.bootstrap-duallistbox.js"></script>
+    <script name="chart" type="text/javascript" src="../js/Chart.min.js"></script>
+    <script name="chartData" type="text/javascript" src="../js/chartData.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/monitor.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-duallistbox.css">
+    <link href="../css/main.css" type="style/css" rel="stylesheet">
+    <link href="../css/myCSS.css" type="style/css" rel="stylesheet">
+
+    <style>
+
+
+
+    </style>
+
+    <script type="text/javascript" src="../scriptbreaker-multiple-accordion-1.js"></script>
+
+
+</head>
+<body>
+<!-- NAVIGATION -->
+<nav class="navbar navbar-default" role="navigation" id="navbar">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span></button>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+
+            <li>
+                <a href="#"><img src="../img/icons/survey.png">Summary</a>
+            </li>
+
+            <li class="nav_current_perspective">
+                <a href="#"><img src="../img/icons/monitor_w.png">Monitor</a>
+            </li>
+            <li>
+                <a href=""><img src="../img/icons/investigate.png">Security</a>
+            </li>
+
+            <li>
+                <a href="#">Automation</a>
+            </li>
+
+            <li>
+                <a href="#">Data</a>
+            </li>
+        </ul>
+
+
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown" id="dropdown-user">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Christopher <img src="../img/admin.png"><b
+                        class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">Account Settings</a>
+                    </li>
+                    <li>
+                        <a href="#">Change Tenant</a>
+                    </li>
+                    <li>
+                        <a href="#">Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+</nav>
+<!-- END OF NAVIGATION -->
+
+
+<div >
+
+
+    <!--Discover a new Cluster-->
+
+    <!--Tag for Cluster-->
+    <div id="tagForNewCluster" class="row">
+        <div class="col-md-4">
+            <h1 class="panel-title tag"> Resources </h1>
+        </div>
+    </div>
+
+    <!--A list of Clusters-->
+    <div id="Clusters" class="row">
+
+        <div id="Cluster1" class="col-md-4 chart">
+            <div class="surveyCard">
+
+                <div class="surveyCard_chart">
+                    <h4 class="text-center">Cluster1 </h4>
+                    <canvas category="security_chart" class="overview_chart bg-pic1" width="300" height="200"></canvas>
+                </div>
+
+                <div category="security" class="btn-group-vertical options_List">
+                    <div class="chgChart"> Change Chart</div>
+                    <button type="button" class="btn btn-default bar"><img src="../img/icons/bar_graph.png"
+                                                                           class="img-responsive"></button>
+                    <button type="button" class="btn btn-default pie"><img src="../img/icons/pie.png"
+                                                                           class="img-responsive">
+                    </button>
+                    <button type="button" class="btn btn-default line"><img src="../img/icons/point_graph.png"
+                                                                            class="img-responsive"></button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div id="Cluster2" class="col-md-4 chart">
+            <div class="surveyCard">
+
+                <div class="surveyCard_chart">
+                    <h4 class="text-center">Cluster2 </h4>
+                    <canvas category="security_chart" class="overview_chart bg-pic2" width="300" height="200"></canvas>
+                </div>
+
+                <div category="security" class="btn-group-vertical options_List">
+                    <div class="chgChart"> Change Chart</div>
+                    <button type="button" class="btn btn-default bar"><img src="../img/icons/bar_graph.png"
+                                                                           class="img-responsive"></button>
+                    <button type="button" class="btn btn-default pie"><img src="../img/icons/pie.png"
+                                                                           class="img-responsive">
+                    </button>
+                    <button type="button" class="btn btn-default line"><img src="../img/icons/point_graph.png"
+                                                                            class="img-responsive"></button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div id="Cluster3" class="col-md-4 chart">
+            <div class="surveyCard">
+
+                <div class="surveyCard_chart">
+                    <h4 class="text-center">Cluster3 </h4>
+                    <canvas category="security_chart" class="overview_chart bg-pic3" width="300" height="200"
+                            style="width: 300px; height: 200px;"></canvas>
+                </div>
+
+                <div category="security" class="btn-group-vertical options_List">
+                    <div class="chgChart"> Change Chart</div>
+                    <button type="button" class="btn btn-default bar"><img src="../img/icons/bar_graph.png"
+                                                                           class="img-responsive"></button>
+                    <button type="button" class="btn btn-default pie"><img src="../img/icons/pie.png"
+                                                                           class="img-responsive">
+                    </button>
+                    <button type="button" class="btn btn-default line"><img src="../img/icons/point_graph.png"
+                                                                            class="img-responsive"></button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--Create a new application-->
+    <!--Tag for Application-->
+    <div id="tagForNewApp" class="row">
+        <div class="col-md-4">
+            <p class="panel-title tag"> Instances </p>
+        </div>
+    </div>
+
+    <!--A list of Applications-->
+    <div id="Applications" class="row">
+
+
+        <div id="App1" cluster="Cluster1" class="col-md-4 chart">
+            <div class="surveyCard">
+
+                <div class="surveyCard_chart">
+                    <h4 class="text-center">App1 </h4>
+                    <canvas category="security_chart" class="overview_chart" width="300px" height="200px"></canvas>
+                </div>
+
+                <div category="security" class="btn-group-vertical options_List">
+                    <div class="chgChart"> Change Chart</div>
+                    <button type="button" class="btn btn-default bar"><img src="../img/icons/bar_graph.png"
+                                                                           class="img-responsive"></button>
+                    <button type="button" class="btn btn-default pie"><img src="../img/icons/pie.png"
+                                                                           class="img-responsive">
+                    </button>
+                    <button type="button" class="btn btn-default line"><img src="../img/icons/point_graph.png"
+                                                                            class="img-responsive"></button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div id="App2" cluster="Cluster2" class="col-md-4 chart">
+            <div class="surveyCard">
+
+                <div class="surveyCard_chart">
+                    <h4 class="text-center">App2 </h4>
+                    <canvas category="security_chart" class="overview_chart" width="300" height="200"
+                            style="width: 300px; height: 200px;"></canvas>
+                </div>
+
+                <div category="security" class="btn-group-vertical options_List">
+                    <div class="chgChart"> Change Chart</div>
+                    <button type="button" class="btn btn-default bar"><img src="../img/icons/bar_graph.png"
+                                                                           class="img-responsive"></button>
+                    <button type="button" class="btn btn-default pie"><img src="../img/icons/pie.png"
+                                                                           class="img-responsive">
+                    </button>
+                    <button type="button" class="btn btn-default line"><img src="../img/icons/point_graph.png"
+                                                                            class="img-responsive"></button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div id="FacebookApp1" cluster="Cluster1" class="col-md-4 chart">
+            <div class="surveyCard">
+
+                <div class="surveyCard_chart">
+                    <h4 class="text-center">FacebookApp1 </h4>
+                    <canvas category="security_chart" class="overview_chart" width="300" height="200"
+                            style="width: 300px; height: 200px;"></canvas>
+                </div>
+
+                <div category="security" class="btn-group-vertical options_List">
+                    <div class="chgChart"> Change Chart</div>
+                    <button type="button" class="btn btn-default bar"><img src="../img/icons/bar_graph.png"
+                                                                           class="img-responsive"></button>
+                    <button type="button" class="btn btn-default pie"><img src="../img/icons/pie.png"
+                                                                           class="img-responsive">
+                    </button>
+                    <button type="button" class="btn btn-default line"><img src="../img/icons/point_graph.png"
+                                                                            class="img-responsive"></button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div id="FacebookApp2" cluster="Cluster2" class="col-md-4 chart">
+            <div class="surveyCard">
+
+                <div class="surveyCard_chart">
+                    <h4 class="text-center">FacebookApp2 </h4>
+                    <canvas category="security_chart" class="overview_chart" width="300" height="200"
+                            style="width: 300px; height: 200px;"></canvas>
+                </div>
+
+                <div category="security" class="btn-group-vertical options_List">
+                    <div class="chgChart"> Change Chart</div>
+                    <button type="button" class="btn btn-default bar"><img src="../img/icons/bar_graph.png"
+                                                                           class="img-responsive"></button>
+                    <button type="button" class="btn btn-default pie"><img src="../img/icons/pie.png"
+                                                                           class="img-responsive">
+                    </button>
+                    <button type="button" class="btn btn-default line"><img src="../img/icons/point_graph.png"
+                                                                            class="img-responsive"></button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+<div style="width: 203px; height: 100%; border:1px solid #f5f5f5; background-color: #f5f5f5; position: fixed; right:0; top: 0;" id="rightnav">
+    <ul id="topnav" class="topnav">
+        <li><a href="#">All Clusters</a>
+            <ul id="clusterIterm">
+            </ul>
+        </li>
+        <div class="clear"></div>
+        <li><a href="#">Applications</a>
+            <ul id="appIterm">
+            </ul>
+        </li>
+    </ul>
+</div>
+
+
+<script language="JavaScript">
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/myCSS.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="../js/jquery.drawDoughnutChart_1.js"></script>
+    <script>
+        $(function () {
+            $(".doughnutChart").each(
+                    function(){
+
+                    $(this).drawDoughnutChart([
+                            {
+                                display_text: true,
+                                title: "No",
+                                value: 70,
+                                color: "#cd003c"
+                            },
+                            {
+                                display_text: false,
+                                title: "Yes",
+                                value: 30,
+                                color: "#ffffff"
+                            }
+                        ]);
+
+                    }
+            );
+        });
+    </script>
+
+</head>
+<body>
+
+<div class="row" style="margin-top:20px">
+    <div class="col-md-12">
+
+        <div class="col-md-3">
+            <div class="chartCard warning">
+                    <div class="text_list">
+                        <h4  class="chart-title"> Collect Twitter Data </h4>
+                        <h5 class="chart-subtitle">Status
+                            <h6 class="subtitle-status"><p class="red-text">Job failed</p>, security error</h6>
+                        </h5>
+                        <h5 class="chart-subtitle">Duration
+                            <h6 class="subtitle-duration">40min</h6>
+                        </h5>
+                        <h5 class="chart-subtitle">Alerts
+                            <h6 class="subtitle-alert">● 3 Errors</h6>
+                        </h5>
+                    </div>
+                    <div class="doughnutChart"></div>
+            </div>
+        </div>
+
+
+        <div class="col-md-3">
+            <div class="chartCard warning">
+                <div class="text_list">
+                    <h4  class="chart-title"> Collect Twitter Data </h4>
+                    <h5 class="chart-subtitle">Status
+                        <h6 class="subtitle-status"><p class="green-text">Job failed</p>, security error</h6>
+                    </h5>
+                    <h5 class="chart-subtitle">Duration
+                        <h6 class="subtitle-duration">40min</h6>
+                    </h5>
+                    <h5 class="chart-subtitle">Alerts
+                        <h6 class="subtitle-alert">● 3 Errors</h6>
+                    </h5>
+                </div>
+                <div class="doughnutChart"></div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="chartCard warning">
+                <div class="text_list">
+                    <h4  class="chart-title"> Collect Twitter Data </h4>
+                    <h5 class="chart-subtitle">Status
+                        <h6 class="subtitle-status"><p class="green-text">Job failed</p>, security error</h6>
+                    </h5>
+                    <h5 class="chart-subtitle">Duration
+                        <h6 class="subtitle-duration">40min</h6>
+                    </h5>
+                    <h5 class="chart-subtitle">Alerts
+                        <h6 class="subtitle-alert">● 3 Errors</h6>
+                    </h5>
+                </div>
+                <div class="doughnutChart"></div>
+            </div>
+        </div>
+
+
+        <div class="col-md-3">
+            <div class="chartCard warning">
+                <div class="text_list">
+                    <h4  class="chart-title"> Collect Twitter Data </h4>
+                    <h5 class="chart-subtitle">Status
+                        <h6 class="subtitle-status"><p class="green-text">Job failed</p>, security error</h6>
+                    </h5>
+                    <h5 class="chart-subtitle">Duration
+                        <h6 class="subtitle-duration">40min</h6>
+                    </h5>
+                    <h5 class="chart-subtitle">Alerts
+                        <h6 class="subtitle-alert">● 3 Errors</h6>
+                    </h5>
+                </div>
+                <div class="doughnutChart"></div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+[
+    {
+
+        "title": "Collect Twitter Data",
+        "status": "Job Failed",
+        "progress": 0.65,
+        "error": "security error",
+        "duration": "40 Minute",
+        "Alerts": {
+            "count": 3,
+            "type": "Error"
+        }
+    },
+
+    {
+
+
+        "title": "Collect FB Data",
+        "status": "Sucessful with warnings",
+        "progress": 1,
+        "error": "",
+        "duration": "40min",
+        "Alerts": {
+            "count": 1,
+            "type": "Error"
+        }
+    },
+
+    {
+
+        "title": "Refreshing Data",
+        "status": "Sucessful",
+        "progress": 1,
+        "error": "",
+        "duration": "40min",
+        "Alerts": {
+            "count": 0,
+            "type": ""
+        }
+    },
+
+    {
+
+        "title": "Format Data",
+        "status": "In Progress",
+        "progress": 0.65,
+        "error": "",
+        "duration": "40min",
+        "Alerts": {
+            "count": 0,
+            "type": ""
+        }
+    },
+
+    {
+
+        "title": "Collect Twitter Data",
+        "status": "Job Failed",
+        "progress": 0.65,
+        "error": "security error",
+        "duration": "40 Minute",
+        "Alerts": {
+            "count": 3,
+            "type": "Error"
+        }
+    },
+
+    {
+
+
+        "title": "Collect FB Data",
+        "status": "Sucessful with warnings",
+        "progress": 1,
+        "error": "",
+        "duration": "40min",
+        "Alerts": {
+            "count": 3,
+            "type": "Warning"
+        }
+    },
+
+    {
+
+        "title": "Refreshing Data",
+        "status": "Sucessful",
+        "progress": 1,
+        "error": "",
+        "duration": "40min",
+        "Alerts": {
+            "count": 0,
+            "type": ""
+        }
+    },
+
+    {
+
+        "title": "Format Data",
+        "status": "In Progress",
+        "progress": 0.65,
+        "error": "",
+        "duration": "40min",
+        "Alerts": {
+            "count": 0,
+            "type": ""
+        }
+    },
+
+    {
+
+        "title": "Collect Twitter Data",
+        "status": "unknown",
+        "progress": 0.65,
+        "error": "security error",
+        "duration": "40 Minute",
+        "Alerts": {
+            "count": 3,
+            "type": "Error"
+        }
+    },
+
+    {
+
+
+        "title": "Collect FB Data",
+        "status": "Sucessful with warnings",
+        "progress": 1,
+        "error": "",
+        "duration": "40min",
+        "Alerts": {
+            "count": 3,
+            "type": "Error"
+        }
+    },
+
+    {
+
+        "title": "Refreshing Data",
+        "status": "Sucessful",
+        "progress": 1,
+        "error": "",
+        "duration": "40min",
+        "Alerts": {
+            "count": 0,
+            "type": ""
+        }
+    },
+
+    {
+
+        "title": "Format Data",
+        "status": "Loading",
+        "progress": 0.65,
+        "error": "",
+        "duration": "40min",
+        "Alerts": {
+            "count": 0,
+            "type": ""
+        }
+    },
+
+    {
+
+        "title": "Collect Twitter Data",
+        "status": "unknown",
+        "progress": 0.65,
+        "error": "security error",
+        "duration": "40 Minute",
+        "Alerts": {
+            "count": 3,
+            "type": "Error"
+        }
+    },
+
+    {
+
+
+        "title": "Collect FB Data",
+        "status": "Sucessful with warnings",
+        "progress": 1,
+        "error": "",
+        "duration": "40min",
+        "Alerts": {
+            "count": 3,
+            "type": "Error"
+        }
+    },
+
+    {
+
+        "title": "Refreshing Data",
+        "status": "Sucessful",
+        "progress": 1,
+        "error": "",
+        "duration": "40min",
+        "Alerts": {
+            "count": 0,
+            "type": ""
+        }
+    },
+
+    {
+
+        "title": "Format Data",
+        "status": "Loading",
+        "progress": 0.65,
+        "error": "",
+        "duration": "40min",
+        "Alerts": {
+            "count": 0,
+            "type": ""
+        }
+    }
+]
+

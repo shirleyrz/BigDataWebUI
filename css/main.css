@@ -6,17 +6,26 @@
     font-style: normal;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, h4, h5, h6, p, * {
     font-family: 'CA-Sans';
 }
 
 /*-----------------  General  -------------------------*/
 body {
     background-color: #f2f2f2;
+    margin-left: 0px;
+    margin-right: 0px;
+    overflow-x:hidden;
+    overflow-y: scroll;
 }
 
 .row {
     margin-bottom: 40px;
+}
+
+div#container.row{
+    margin-left:0;
+    margin-right:0;
 }
 
 /*-----------------  Navigation  -------------------------*/
@@ -35,6 +44,11 @@ body {
     border-right-width: 1px;
     border-color: #dadada;
     border-right-style: solid;
+}
+
+div#topNavbar>ul>li>a{
+    height: 53px;
+    display: inline-block;
 }
 
 .nav_current_perspective {
@@ -62,14 +76,17 @@ body {
     margin-bottom: 40px;
 }
 
-#page_title, .surveyCard_chart, .detailCard_chart h4 {
+#page_title, .surveyCard_chart h4, .detailCard_chart h4 {
     color: #9e9e9e;
     text-decoration: underline;
 }
 
+.surveyCard_chart h4 {
+    font-size: 13px;
+}
+
 .surveyCard {
-    width: 90%;
-    min-height: 100%;
+    width: 100%;
     height: 100%;
     background-color: #fff;
     margin: auto;
@@ -84,33 +101,37 @@ body {
     background-color: #fff;
     float: left;
     margin: auto;
-    width: 85%;
+    width: 80%;
+    height: 100%;
 }
 
 .surveyCard_chart img {
-    width: 90%;
+    height: 100%;
+    width: 100%;
     margin: auto;
     display: block;
 }
 
 .options_List {
-    float: left;
+    float: right;
     overflow: hidden;
     background-color: #eeedea;
     margin: auto;
-    width: 15%;
+    width: 50px;
 }
 
 .options_List button {
+
+    display: inline-block;
     background-color: #eeedea;
-    height: 33%;
+    height: 66px;
 }
 
 .options_List img {
     width: 100%;
-    margin: 25px auto;
+    /*margin: 18px auto;*/
     display: block;
-    opacity: .8;
+    /* opacity: .2;*/
 }
 
 .options_List img:hover {
@@ -126,6 +147,8 @@ canvas {
     margin-left: auto;
     margin-right: auto;
     display: block;
+    height: 150px;
+    width: 200px;
 }
 
 /*-----------------  Detail Cards  -------------------------*/

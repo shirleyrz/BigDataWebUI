@@ -1,33 +1,31 @@
 
 .pointer:hover {
     cursor: pointer;
-
 }
 
 .panel-title {
     color: black;
-    font-size: 150%;
+    font-size: 25px;
     text-align: left;
     font-weight: bold
 }
 
 .panel-description {
     color: green;
-    font-size: 110%;
+    font-size: 100%;
     text-align: center;
 }
 
-.divCenter {
-    line-height: 250px;
-    text-align: center;
-    vertical-align: middle
+.chart {
+    height: 230px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .chart .surveyCard {
-    height: 286px;
+    height: 100%;
     background-color: #ffffff;
 }
-
 
 .chart .surveyCard_chart {
     background: transparent;
@@ -42,9 +40,8 @@
     margin-bottom: 10px;
 }
 
-
 .tag {
-    margin-left: 25px;
+    margin-left: 15px;
 }
 
 #tagForNewCluster, #tagForNewApp {
@@ -53,4 +50,537 @@
 
 #Applications, #Clusters {
     margin-bottom: 15px;
+}
+
+div .rightNavbar {
+    width: 203px;
+    height: 480px;
+    background-color: #f2f2f2;
+}
+
+ul.rightNavbar {
+    float: right;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 100%;
+    padding: 2px 2px 5px 2px;
+}
+
+ul.rightNavbar li {
+    list-style: none;
+}
+
+ul.rightNavbar li svg {
+    margin-left: 15px;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+ul.rightNavbar li a {
+    font-size: 14px;
+    padding: 0 10px 0 5px;
+    color: #000;
+    text-decoration: none;
+}
+
+ul.rightNavbar li a#allClusters, ul.rightNavbar li a#allApps {
+    font-weight: bolder;
+    width: 100%;
+    background-color: #ffffff;
+    height: 30px;
+    display: block;
+    line-height: 2;
+    padding-left: 15px;
+
+}
+
+ul.rightNavbar ul {
+    padding: 0;
+    display: block;
+}
+
+ul.rightNavbar ul li {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 0;
+    clear: both;
+    background-color: white;
+}
+
+ul.rightNavbar ul li:hover {
+    background-color: #D3C99C;
+    color: #675C7C;
+    cursor: pointer;
+}
+
+ul.rightNavbar ul li a {
+    padding-left: 3px;
+    font-size: 12px;
+    font-weight: normal;
+    outline: 0;
+    display: inline-block;
+    background-color: transparent;
+}
+
+ul.rightNavbar span {
+    float: right;
+}
+
+div .clear {
+    height: 5px;
+    width: 100%
+}
+
+div .bg-pic1 {
+    background-image: url('../img/logo/logo1.png');
+    background-size: 34%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+div .bg-pic2 {
+    background-image: url('../img/logo/logo2.png');
+    background-size: 34%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+div .bg-pic3 {
+    background-image: url('../img/logo/logo3.png');
+    background-size: 33%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+div .options_List .chgChart {
+    background-color: #4682b4;
+    border: solid 1px #ccc;
+    text-align: center;
+    color: white;
+    height: 34px;
+    font-size: 80%;
+    font-size-adjust: inherit;
+}
+
+div .btnNew {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 230px;
+    vertical-align: middle;
+
+}
+
+.divCenter {
+    text-align: center;
+    vertical-align: middle;
+    height: 80%;
+    padding-top: 30px;
+    padding-bottom: 15px;
+
+}
+
+div .btnNew img {
+    height: 100%;
+    text-align: center;
+}
+
+div .noRightPadding {
+    padding-right: 0;
+}
+
+div .leftpadding {
+    padding-left: 15px;
+}
+
+.roundtag {
+    color: red;
+}
+
+div .tags_list {
+    text-align: center;
+}
+
+div .tags_list a {
+    opacity: 0.7;
+    text-decoration: none;
+    color: #fff;
+    font-size: 10px;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 2px 2px;
+    border-radius: 2px;
+    text-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+div .tags_list a:hover {
+    opacity: 1;
+}
+
+.blue {
+    background-color: #0064af;
+
+}
+
+.orange {
+    background-color: #e98300;
+}
+
+.yellow {
+    background-color: #f2b600;
+}
+
+.dark-orange {
+    background-color: #e05205;
+}
+
+.red {
+    background-color: #cd003c;
+}
+
+div.scroll-pane {
+    overflow: hidden;
+    width: 100%;
+    float: left;
+}
+
+.scroll-content {
+    overflow: hidden;
+    /*width: 4000px;*/
+    float: left;
+}
+
+.scroll-content-item {
+    height: 180px;
+    float: left;
+    margin: 10px;
+    padding: 0px;
+    background-color: white;
+    /* border: 1px solid #aaaaaa;*/
+}
+
+.scroll-small-content {
+    overflow: hidden;
+    width: 100%;
+    height: 100px;
+    float: left;
+}
+
+.scroll-small-content-item {
+    height: 90px;
+    float: left;
+    /*margin: 5px;*/
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0;
+}
+
+.scroll-bar-wrap {
+    clear: left;
+    height: 100px;
+}
+
+.scroll-bar-wrap .ui-slider {
+    background: none;
+    border: 0;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.scroll-bar-wrap .ui-handle-helper-parent {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.scroll-bar-wrap .ui-slider-handle {
+    top: -.05em;
+    /*  height: 100%;*/
+}
+
+.scroll-bar-wrap .ui-slider-handle .ui-icon {
+    /*       margin: -8px auto 0;
+           position: relative;
+           top: 50%;*/
+}
+
+.scroll-bar-small {
+    width: 100%;
+    font-weight: normal;
+    color: #555555;
+    border-bottom-right-radius: 4px;
+}
+
+.ui-slider .ui-slider-handle {
+    height: 100%;
+    width: 5px;
+    padding-left: 5px;
+    background-color: #c4e3f3;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    background: #222222;
+    font-weight: normal;
+    color: #555555;
+    opacity: 0.5;
+    height: 100%;
+}
+
+h1 {
+    color: #eee;
+    text-align: center;
+    margin: 20px 0;
+    text-transform: uppercase;
+}
+
+.chartCard {
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.smallChartCard {
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+}
+
+.chartCard:hover, .smallChartCard:hover {
+    box-shadow: inset 3px 3px 10px 2px #adadad;
+}
+
+h4.chart-title {
+    margin-bottom: 10px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.text_list {
+    float: left;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-top: 5px;
+    width: 100%;
+    position: relative;
+
+}
+
+h5.chart-subtitle {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+h5.chart-subtitle h6 {
+    margin-top: 5px;
+
+}
+
+
+p.red-text {
+    color: #cd003c;
+    font-weight: bold;
+}
+
+p.green-text {
+    color: green;
+    font-weight: bold;
+}
+
+h6 p {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.text_list h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.doughnutChart {
+    float: right;
+    right: 0px;
+    height: 180px;
+    position: absolute;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: transparent;
+}
+
+.smallDoughnutChart {
+
+    height: 70px;
+    position: absolute;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background-color: transparent;
+}
+
+.doughnutTip {
+    position: absolute;
+    float: left;
+    min-width: 30px;
+    max-width: 300px;
+    padding: 5px 15px;
+    border-radius: 1px;
+    background: rgba(0, 0, 0, .8);
+    color: #ddd;
+    font-size: 17px;
+    text-shadow: 0 1px 0 #000;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.3;
+    letter-spacing: .06em;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    transform: all .3s;
+    pointer-events: none;
+}
+
+.doughnutTip:after {
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    content: "";
+    height: 0;
+    margin: 0 0 0 -6px;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-top: 6px solid rgba(0, 0, 0, .7);
+    line-height: 0;
+}
+
+.doughnutSummary {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #d5d5d5;
+    text-align: center;
+    text-shadow: 0 -1px 0 #111;
+    cursor: default;
+}
+
+.doughnutSummaryTitle {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    margin-top: -27%;
+    font-size: 22px;
+    letter-spacing: .06em;
+}
+
+.doughnutSummaryNumber {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    margin-top: -15%;
+    font-size: 55px;
+}
+
+.doughnutChart path:hover {
+    opacity: .65;
+}
+
+div.warning.doughnutChart {
+    background-image: url('../img/warning_shield.png');
+    background-size: 40%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+div.successful.doughnutChart {
+    background-image: url('../img/warning.png');
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+div.loading.doughnutChart {
+    background-image: url('../img/sandglass.png');
+    background-size: 30%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+div.cap.doughnutChart {
+    background-image: url('../img/cap.png');
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+div.col-md-12.textCard {
+    position: relative;
+}
+
+div.col-md-4.textCard {
+    height: 150px;
+    padding: 10px;
+    text-align: center;
+}
+
+div.textCard .textCard-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+div.textCard .textCard-detail {
+    font-size: 18px;
+}
+
+div.textCard .textCard-detail h4 p {
+    display: inline;
+}
+
+div.page-subtitle {
+    font-size: 15px;
+    text-align: left;
+    position: relative;
+}
+
+div.footer-time {
+    padding-left: 15px;
+    font-size: 15px;
+    text-align: left;
+    position: relative;
+}
+
+div.page-title {
+    text-align: left;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.blurry-tag {
+    text-shadow: 0 0 4px #000;
+}
+
+div#topNavbar > ul.navbar-nav {
+    display: inline-block;
+}
+
+div#topNavbar > ul.nav-data-pane {
+    font-size: 18px;
+    display: inline-block;
+    float: right;
+    line-height: 53px;
+    margin-bottom: 0px;
+    margin-right:20px;
+}
+
+div#topNavbar > ul.nav.navbar-nav.navbar-right {
+    display: inline-block;
+}
+
+div.counterPane > div.row{
+    margin-bottom: 0px;
 }

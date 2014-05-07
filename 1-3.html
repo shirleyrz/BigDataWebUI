@@ -10,11 +10,12 @@
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="/js/jquery.min.js"><\/script>')</script>
 
-    <script  type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script  type="text/javascript" src="js/jquery.bootstrap-duallistbox.js"></script>
-    <script name="chart"  type="text/javascript" src="js/Chart.min.js"></script>
-    <script name="chartData"  type="text/javascript" src="js/chartData.js"></script>
-    <script  type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.bootstrap-duallistbox.js"></script>
+    <script name="chart" type="text/javascript" src="js/Chart.min.js"></script>
+    <script name="chartData" type="text/javascript" src="js/chartData.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/library.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -28,8 +29,8 @@
     <link href="css/myCSS.css" type="style/css" rel="stylesheet">
 
 
-
 </head>
+
 <body>
 <!-- NAVIGATION -->
 <nav class="navbar navbar-default" role="navigation" id="navbar">
@@ -81,73 +82,76 @@
 <!-- END OF NAVIGATION -->
 
 
-<div>
+<div id="container" class="row">
 
-    <!--Create a new application-->
-    <!--Tag for Application-->
-    <div id="tagForNewApp" class="row">
-        <div class="col-md-4">
-            <p class="panel-title tag"> Applications </p>
-        </div>
-    </div>
-
-    <!--A list of Applications-->
-    <div id="Applications" class="row">
-        <div id="btnNewApplication" class="col-md-4">
-            <div class="surveyCard" data-toggle="modal" data-target="#modalApplication">
-                <div class="divCenter pointer"><img src="img/green-plus-sign.png"/></div>
-                <p class="panel-description">Create a New Application</p>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <!--Create a new application-->
+        <!--Tag for Application-->
+        <div id="tagForNewApp" class="row">
+            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+                <p class="panel-title tag"> Applications </p>
             </div>
         </div>
-    </div>
 
-    <!--Discover a new Cluster-->
-
-    <!--Tag for Cluster-->
-    <div id="tagForNewCluster" class="row">
-        <div class="col-md-4">
-            <h1 class="panel-title tag"> Clusters </h1>
-        </div>
-    </div>
-
-    <!--A list of Clusters-->
-    <div id="Clusters" class="row">
-
-
-        <div id="Cluster1" class="col-md-4 chart">
-            <div class="surveyCard">
-
-                <div class="surveyCard_chart">
-                    <h4 class="text-center">Security </h4>
-                    <canvas category="security_chart" class="overview_chart" width="300" height="200" style="width: 300px; height: 200px;"></canvas>
+        <!--A list of Applications-->
+        <div id="Applications" class="row">
+            <div id="btnNewApplication" class="col-md-3 col-lg-3 col-sm-3 col-xs-3 btnNew">
+                <div class="surveyCard" data-toggle="modal" data-target="#modalApplication">
+                    <div class="divCenter pointer"><img src="img/green-plus-sign.png"/></div>
+                    <p class="panel-description">Create a New Application</p>
                 </div>
+            </div>
+        </div>
 
-                <div category="security" class="btn-group-vertical options_List">
-                <button type="button" class="btn btn-default bar"><img src="img/icons/bar_graph.png" class="img-responsive"></button>
-                    <button type="button" class="btn btn-default pie"><img src="img/icons/pie.png" class="img-responsive">
-                    </button>
-                    <button type="button" class="btn btn-default line"><img src="img/icons/point_graph.png" class="img-responsive"></button>
+        <!--Discover a new Cluster-->
+
+        <!--Tag for Cluster-->
+        <div id="tagForNewCluster" class="row">
+            <div class="col-md-3 col-lg-3 col-sm-3">
+                <h1 class="panel-title tag"> Clusters </h1>
+            </div>
+        </div>
+
+        <!--A list of Clusters-->
+        <div id="Clusters" class="row">
+
+
+            <div id="Cluster1" class="col-md-3  col-lg-3 col-sm-3 chart">
+                <div class="surveyCard">
+
+                    <div class="surveyCard_chart">
+                        <h4 class="text-center">Security </h4>
+                        <canvas category="security_chart" class="overview_chart"></canvas>
+                    </div>
+
+                    <div category="security" class="btn-group-vertical options_List">
+                        <div class="chgChart"> Change Chart</div>
+                        <button type="button" class="btn btn-default bar"><img src="img/icons/bar_graph.png"
+                                                                               class="img-responsive"></button>
+                        <button type="button" class="btn btn-default pie"><img src="img/icons/pie.png"
+                                                                               class="img-responsive">
+                        </button>
+                        <button type="button" class="btn btn-default line"><img src="img/icons/point_graph.png"
+                                                                                class="img-responsive"></button>
+                    </div>
+
                 </div>
+            </div>
 
+
+            <div id="btnNewCluster" class="col-md-3  col-lg-3 col-sm-3 btnNew">
+                <div class="surveyCard">
+                    <div class="divCenter pointer"><img src="img/green-plus-sign.png" class="imgmid"
+                                                        data-toggle="modal"
+                                                        data-target="#modalCluster"/></div>
+                    <p class="panel-description ">Discover a New Cluster</p>
+                </div>
             </div>
         </div>
 
 
-        <div id="btnNewCluster" class="col-md-4">
-            <div class="surveyCard">
-                <div class="divCenter pointer"><img src="img/green-plus-sign.png" class="imgmid"
-                                                    data-toggle="modal"
-                                                    data-target="#modalCluster"/></div>
-                <p class="panel-description ">Discover a New Cluster</p>
-            </div>
-        </div>
     </div>
-
-
 </div>
-
-
-
 
 <!-- Pop Up Modal Window for New Applications-->
 <div class="modal fade" id="modalApplication" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -159,14 +163,14 @@
                 <h4 class="modal-title">Create an Application</h4>
             </div>
 
-            <div class="modal-body" class="col-xs-12">
+            <div class="modal-body" class="col-xs-12 col-md-12 col-lg-12">
                 <form role="form">
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-xs-12">
+                            <div class="col-xs-12 col-md-12 col-lg-12">
                                 <label for="inputName" class="control-label">Name</label>
                             </div>
-                            <div class="col-xs-6">
+                            <div class="col-xs-6 col-md-6 col-lg-6">
                                 <input type="name" class="form-control" id="inputName" placeholder="Enter Name">
                             </div>
                         </div>
@@ -174,10 +178,10 @@
 
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-xs-6">
+                            <div class="col-xs-6 col-md-6 col-lg-6">
                                 <label for="inputDescription" class="control-label">Description</label>
                             </div>
-                            <div class="col-xs-12">
+                            <div class="col-xs-12 col-md-12 col-lg-12">
                                 <textarea id="inputDescription" class="form-control" rows="3"></textarea>
                             </div>
                         </div>
@@ -200,7 +204,9 @@
 
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary"  data-dismiss="modal" onclick="addCard('application')">Add</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="addCard('application')">
+                    Add
+                </button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
             </div>
 
@@ -247,15 +253,16 @@
 
 
 <div style="display: none">
-    <div id="sampleCard" class="col-md-4 chart">
+    <div id="sampleCard" class="col-md-3 col-lg-3 col-sm-3 chart">
         <div class="surveyCard">
 
             <div class="surveyCard_chart">
                 <h4 class="text-center">Security </h4>
-                <canvas category="security_chart" class="overview_chart" width="300px" height="200px"></canvas>
+                <canvas category="security_chart" class="overview_chart"></canvas>
             </div>
 
             <div category="security" class="btn-group-vertical options_List">
+                <div class="chgChart"> Change Chart</div>
                 <button type="button" class="btn btn-default bar"><img src="img/icons/bar_graph.png"
                                                                        class="img-responsive"></button>
                 <button type="button" class="btn btn-default pie"><img src="img/icons/pie.png" class="img-responsive">

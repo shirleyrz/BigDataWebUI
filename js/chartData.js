@@ -1,47 +1,89 @@
 var color = ['#0064af', '#e98300', '#f2b600', '#e05205', '#cd003c'];
 
-var chartType = ['security_chart', 'dev_chart', 'api_chart', 'dlp_chart' , 'process_chart', 'service_chart' ];
 
-var data = [
-    {
-        value: 30,
-        color: color[0]
-    },
-    {
-        value: 50,
-        color: color[1]
-    },
-    {
-        value: 100,
-        color: color[2]
-    },
-    {
-        value: 40,
-        color: color[3]
-    },
-    {
-        value: 120,
-        color: color[4]
+function generateRandPieData(){
+
+    var data = [
+        {
+            value: 1000 * Math.random(),
+            color: color[0]
+        },
+        {
+            value: 1000 * Math.random(),
+            color: color[1]
+        },
+        {
+            value: 1000 * Math.random(),
+            color: color[2]
+        },
+        {
+            value: 100 * Math.random(),
+            color: color[3]
+        },
+        {
+            value: 1200 * Math.random(),
+            color: color[4]
+        }
+
+    ];
+
+    return data;
+}
+
+
+function generatefixedPieData(){
+
+    var data = [
+        {
+            value: 30,
+            color: color[0]
+        },
+        {
+            value: 50,
+            color: color[1]
+        },
+        {
+            value: 100,
+            color: color[2]
+        },
+        {
+            value: 40,
+            color: color[3]
+        },
+        {
+            value: 120,
+            color: color[4]
+        }
+
+    ]
+
+    return data;
+}
+
+function chartDataInit() {
+
+    var color = ['#0064af', '#e98300', '#f2b600', '#e05205', '#cd003c'];
+
+    var chartType = ['security_chart', 'dev_chart', 'api_chart', 'dlp_chart' , 'process_chart', 'service_chart' ];
+
+    var data = generatefixedPieData();
+
+    var c;
+
+    for (var i = 0; i < chartType.length; i++) {
+
+        c = $("canvas[category='" + chartType[i] + "']");
+        if (typeof ( c ) == "undefined" || c.length == 0) {
+            console.log("Type is undefined: " + chartType[i]);
+        } else {
+            console.log("Type is defined: " + chartType[i]);
+            c.each(function () {
+                new Chart($(this).get(0).getContext("2d")).Doughnut(data);
+            });
+        }
+
     }
 
-]
-
-var c;
-
-for (var i = 0; i < chartType.length; i++) {
-
-    c = $("canvas[category='" + chartType[i] + "']");
-
-    if (typeof ( c ) == "undefined" || c.length == 0) {
-        console.log("Type is undefined: " + chartType[i]);
-
-    } else {
-        console.log("Type is defined: " + chartType[i]);
-        c.each(function () {
-            new Chart($(this).get(0).getContext("2d")).Doughnut(data);
-        });
-
-    }
 
 }
 

@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Screen 7-8</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="http://jqueryui.com/jquery-wp-content/themes/jqueryui.com/style.css">
+    <link href="css/scrollspy.css" type="style/css" rel="stylesheet">
+
+    <link type="style/css" rel="stylesheet" href="css/scrollspy.css">
+    <link type="style/css" rel="stylesheet" href="css/main.css">
+    <link type="style/css" rel="stylesheet" href="css/myCSS.css">
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="js/scroll_panel.js"></script>
+    <script src="js/jquery.drawDoughnutChart_1.js"></script>
+</head>
+<body >
+
+
+
+<!-- NAVIGATION -->
+<nav class="navbar navbar-default" role="navigation" id="navbar">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span></button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="topNavbar">
+        <ul class="nav navbar-nav">
+
+            <li>
+                <a href="#"><img src="img/icons/survey.png">Summary</a>
+            </li>
+
+            <li class="nav_current_perspective">
+                <a href="#"><img src="img/icons/monitor_w.png">Monitor</a>
+            </li>
+            <li>
+                <a href=""><img src="img/icons/investigate.png">Security</a>
+            </li>
+
+            <li>
+                <a href="#">Automation</a>
+            </li>
+
+            <li>
+                <a href="#">Data</a>
+            </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown" id="dropdown-user">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Christopher <img src="img/admin.png"><b
+                        class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">Account Settings</a>
+                    </li>
+                    <li>
+                        <a href="#">Change Tenant</a>
+                    </li>
+                    <li>
+                        <a href="#">Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="nav-data-pane">
+            <li class="alerts">
+                <span class="legend-red extreme-alert-count unread-alert-count">12</span>
+                <span class="vertical-line">|</span>
+                <span class="legend-red translucence extreme-alert-count read-alert-count">35</span>
+                <span class="legend-red">E</span>
+            </li>
+
+            <span class="vertical-line">|</span>
+
+            <li class="alerts">
+                <span class="legend-amber critical-alert-count">47</span>
+                <span class="legend-amber">C</span>
+            </li>
+
+            <span class="vertical-line">|</span>
+
+            <li class="alerts">
+                <span class="legend-yellow"><span class="serious-alert-count">102</span> S</span>
+            </li>
+
+            <span class="vertical-line">|</span>
+
+            <li class="alerts">
+                <span class="legend-orange"><span class="warning-alert-count">631</span> W</span>
+            </li>
+        </ul>
+
+    </div>
+    <!-- /.navbar-collapse -->
+</nav>
+<!-- END OF NAVIGATION -->
+
+
+<!--Jobs Header/description-->
+<div class="row">
+    <div class="col-md-12 col-lg-12  col-sm-12 col-xs-12 textCard">
+        <div class="col-md-7 col-lg-7  col-sm-7 col-xs-7">
+            <div class="page-title">
+                Facebook Application Jobs
+            </div>
+            <div class="page-subtitle"><b> 2-21-14</b> 02:00:00</div>
+        </div>
+        <div class="col-md-5 col-lg-5  col-sm-5 col-xs-5 counterPane">
+            <div class="row">
+                <div class="alerts col-md-3 col-lg-3  col-sm-3 col-xs-3"><span class="legend-red"><span id="extreme-alert-count badge">4</span><br>Extreme Alerts</span></div>
+                <div class="alerts col-md-3 col-lg-3  col-sm-3 col-xs-3"><span class="legend-amber"><span id="critical-alert-count badge">12</span><br>Critical Alerts</span></div>
+                <div class="alerts col-md-3 col-lg-3  col-sm-3 col-xs-3"><span class="legend-yellow"><span id="serious-alert-count badge">24</span><br>Serious Alerts</span></div>
+                <div class="alerts col-md-3 col-lg-3  col-sm-3 col-xs-3"><span class="legend-orange"><span id="warning-alert-count badge">67</span><br>Warnings Alerts</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="scroll-pane ui-widget ui-corner-all">
+
+    <div class="scroll-bar-wrap ">
+        <div class="scroll-small-content"></div>
+        <div class="scroll-bar"></div>
+    </div>
+    <div class="scroll-content"></div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-lg-12  col-sm-12 col-xs-12 textCard">
+        <div class="col-md-4 col-lg-4  col-sm-4 col-xs-4 textCard">
+            <div class="textCard-title">
+                Cluster Information
+            </div>
+            <div class="textCard-detail">
+                <h4>Health: <p class="green-text">Good</p></h4>
+                <h4>Connectivity: <p class="green-text">Good</p></h4>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-4  col-sm-4 col-xs-4 textCard">
+            <div class="textCard-title">
+                Job Info
+            </div>
+            <div class="textCard-detail">
+                <h4>Progress: <p class="green-text">60%</p></h4>
+                <h4>Status: <p class="red-text">Failed</p></h4>
+                <h4>Failure Cause: <p class="red-text">Security Error</p></h4>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-4  col-sm-4 col-xs-4 textCard">
+            <div class="textCard-title">
+                Security Info
+            </div>
+            <div class="textCard-detail">
+                <h4>Status: <p class="green-text">Secured</p></h4>
+                <h4>Alert: <p class="red-text">3</p></h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-lg-12  col-sm-12 col-xs-12">
+        <div class=" footer-time"><b>2-21-14</b> 06:00:00</div>
+    </div>
+</div>
+
+<div style="display: none">
+    <div id="sample" class="chartCard">
+        <div class="text_list">
+            <h4 class="chart-title"> Collect Twitter Data </h4>
+            <h5 class="chart-subtitle">Status
+                <h6 class="subtitle-status"><p class="red-text">Job failed</p>, security error</h6>
+            </h5>
+            <h5 class="chart-subtitle">Duration
+                <h6 class="subtitle-duration">40min</h6>
+            </h5>
+            <h5 class="chart-subtitle">Alerts
+                <h6 class="subtitle-alert">● 3 Errors</h6>
+            </h5>
+        </div>
+        <div class="doughnutChart" style="float:right"></div>
+    </div>
+
+    <div id="sample-small" class="smallChartCard">
+        <div class="doughnutChart" style="float:right"></div>
+    </div>
+</div>
+
+
+</body>
+</html>

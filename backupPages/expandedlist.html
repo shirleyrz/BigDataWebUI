@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>MENU</title>
+    <style>
+        .topnav {
+            width: 213px;
+            padding: 40px 28px 25px 0;
+            font-family: "CenturyGothicRegular", "Century Gothic", Arial, Helvetica, sans-serif;
+        }
+
+        ul.topnav {
+            padding: 0;
+            margin: 0;
+            font-size: 1em;
+            line-height: 0.5em;
+            list-style: none;
+        }
+
+        ul.topnav li {
+        }
+
+        ul.topnav li a {
+            line-height: 10px;
+            font-size: 11px;
+            padding: 10px 5px;
+            color: #000;
+            display: block;
+            text-decoration: none;
+            font-weight: bolder;
+        }
+
+        ul.topnav li a:hover {
+            background-color: #675C7C;
+            color: white;
+        }
+
+        ul.topnav ul {
+            margin: 0;
+            padding: 0;
+            display: none;
+        }
+
+        ul.topnav ul li {
+            margin: 0;
+            padding: 0;
+            clear: both;
+        }
+
+        ul.topnav ul li a {
+            padding-left: 20px;
+            font-size: 10px;
+            font-weight: normal;
+            outline: 0;
+        }
+
+        ul.topnav ul li a:hover {
+            background-color: #D3C99C;
+            color: #675C7C;
+        }
+
+        ul.topnav ul ul li a {
+            color: silver;
+            padding-left: 40px;
+        }
+
+        ul.topnav ul ul li a:hover {
+            background-color: #D3CEB8;
+            color: #675C7C;
+        }
+
+        ul.topnav span {
+            float: right;
+        }
+    </style>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../scriptbreaker-multiple-accordion-1.js"></script>
+    <script language="JavaScript">
+
+        $(document).ready(function () {
+            $(".topnav").accordion({
+                accordion: false,
+                speed: 500,
+                closedSign: '[+]',
+                openedSign: '[-]'
+            });
+        });
+
+    </script>
+
+
+<body>
+
+
+<div id="Applications" class="row">
+
+
+    <div id="App1" class="col-md-4 chart">
+        <div class="surveyCard">
+            <div class="surveyCard_chart">App1
+                <!--Canvas-->
+            </div>
+
+            <div category="security" class="btn-group-vertical options_List">
+                <!--Button List-->
+            </div>
+
+        </div>
+    </div>
+
+    <div id="App2" class="col-md-4 chart">
+        <div class="surveyCard">
+            <div class="surveyCard_chart">App2
+                <!--Canvas-->
+            </div>
+
+            <div category="security" class="btn-group-vertical options_List">
+                <!--Button List-->
+            </div>
+
+        </div>
+    </div>
+
+
+    <div id="Facebook App1" class="col-md-4 chart">
+        <div class="surveyCard">
+            <div class="surveyCard_chart">App2
+                <!--Canvas-->
+            </div>
+
+            <div category="security" class="btn-group-vertical options_List">
+                <!--Button List-->
+            </div>
+
+        </div>
+    </div>
+
+
+    <div id="Facebook App2" class="col-md-4 chart">
+        <div class="surveyCard">
+            <div class="surveyCard_chart">App2
+                <!--Canvas-->
+            </div>
+
+            <div category="security" class="btn-group-vertical options_List">
+                <!--Button List-->
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+<div id="Clusters" class="row">
+
+
+    <div id="Cluster1" class="col-md-4 chart">
+        <div class="surveyCard">
+            <div class="surveyCard_chart">
+                Cluster1
+                <!--Canvas-->
+            </div>
+
+            <div category="security" class="btn-group-vertical options_List">
+                <!--Button List-->
+            </div>
+
+        </div>
+    </div>
+
+    <div id="Cluster2" class="col-md-4 chart">
+        <div class="surveyCard">
+            <div class="surveyCard_chart">Cluster2
+                <!--Canvas-->
+            </div>
+
+            <div category="security" class="btn-group-vertical options_List">
+                <!--Button List-->
+            </div>
+
+        </div>
+    </div>
+    <div id="Cluster3" class="col-md-4 chart">
+        <div class="surveyCard">
+            <div class="surveyCard_chart">Cluster3
+                <!--Canvas-->
+            </div>
+
+            <div category="security" class="btn-group-vertical options_List">
+                <!--Button List-->
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+<ul id="topnav" class="topnav">
+    <li><a href="#">All Clusters</a>
+        <ul id="clusterIterm">
+        </ul>
+    </li>
+    <li><a href="#">Applications</a>
+        <ul id="appIterm">
+        </ul>
+    </li>
+</ul>
+
+
+</body>
+
+<script>
+
+    $(function () {
+        var chartID = ["Clusters", "Applications"];
+        var itemID = ["clusterIterm", "appIterm"];
+        for (var i = 0; i < chartID.length; i++) {
+            var curID = chartID[i];
+            var curCount = chartCount(curID);
+            var list = $("#" + itemID[i]);
+            console.log("counter#=" + curCount);
+            if (curCount > 0) {
+                $("#" + curID + " .chart").each(function () {
+                            list.append("<li><a href='#'>" + this.id + "</a></li>");
+                        }
+                );
+            }
+        }
+    });
+
+
+    function chartCount(chartsID) {
+        var chartCount = 0;
+        var chart = $("#" + chartsID + " .chart");
+        if ((typeof(chart) !== "undefined") && (chart.length > 0)) {
+            chartCount = chart.length;
+        }
+        return chartCount;
+    }
+
+
+</script>
+</html>

@@ -1,9 +1,5 @@
-var color = ['#0064af', '#e98300', '#f2b600', '#e05205', '#cd003c'];
-
-
-$(function () {
-    init_id();
-
+// add click function for button on the chart
+function buttonInit() {
     $('button').click(function () {
         var category = $(this).closest("div").attr("category").toString();
         var parentId = $(this).parent().parent().parent().attr("id").toString();
@@ -78,23 +74,21 @@ $(function () {
 
     });
 
-    console.log("Complete initialization!");
-});
-
+    console.log("Complete button initialization!");
+}
 /*reload every chart*/
-function init_id() {
-
+function chartInit() {
     var id;
     var count = 0;
-    var existingCardList = $(".row  .chart ");
+    var existingCardList = $("div  .chart ");
     // check if chartCard has id, if not/wrongID then set the ID for the div
     existingCardList.each(function () {
         id = $(this).attr("id");
-        if (typeof(id) !== 'undefined' &&  id.length > 0) {
+        if (typeof(id) !== "undefined" && id != "sampleCard") {
             changePie(id, $("#" + id + " canvas").attr("category"));
         }
     });
-
+    console.log("Complete button initialization!");
 }
 
 
@@ -128,7 +122,6 @@ function addCard(type) {
         console.log("length before add card:  " + length);
 
         //append sampleCard to cardList
-
         if (length < 0) {
             console.log("error length");
         } else if (length === 0) {
@@ -139,20 +132,18 @@ function addCard(type) {
 
         console.log("new chart id:  " + idPrefix + length);
 
-
         //update new chartCard
         changePie(idPrefix + length, $("#sampleCard canvas").attr("category"));
 
-
     } else {
-        console.log("Wrong type card to add.");
+        console.log("Wrong type card to add: "+ type);
     }
 
 }
 
 
 function changeBar(parentID, chartName) {
-    console.log("[ChangeBar]parentID = "+parentID+", chartType = ", chartName);
+    console.log("[ChangeBar]parentID = " + parentID + ", chartType = ", chartName);
     var canvas = $("#" + parentID + " .overview_chart" + "[category='" + chartName + "']");
     var ctx = canvas.get(0).getContext("2d");
     var options = {
@@ -180,12 +171,32 @@ function changeBar(parentID, chartName) {
         ]
     }
     new Chart(ctx).Bar(data, options);
+    changeButtonOpacity(parentID, "bar");
+
+}
+
+
+//change the selected button's opacity
+function changeButtonOpacity(parentID, btnType) {
+    $("#" + parentID + " button").each(function () {
+        if ($(this).hasClass(btnType)) {
+            $(this).css("border-color", "#adadad");
+            $(this).css("z-index", 2);
+            $("img", this).css('opacity', 1);
+        } else {
+            $(this).css("border-color", "#ccc");
+            $(this).css("z-index", 1);
+            $("img", this).css("opacity", 0.2);
+        }
+
+    })
+
 }
 
 
 //Line Graph
 function changeLine(parentID, chartName) {
-    console.log("[ChangeLine]parentID = "+parentID+", chartType = ", chartName);
+    console.log("[ChangeLine]parentID = " + parentID + ", chartType = ", chartName);
     var canvas = $("#" + parentID + " .overview_chart" + "[category='" + chartName + "']");
     var ctx = canvas.get(0).getContext("2d");
     var options = {
@@ -212,38 +223,35 @@ function changeLine(parentID, chartName) {
         ]
     }
     new Chart(ctx).Line(data, options);
+    changeButtonOpacity(parentID, "line");
 }
 
 
 //Pie Graph
 function changePie(parentID, chartName) {
-    console.log("[ChangePie]parentID = "+parentID+", chartType = ", chartName);
+    console.log("[ChangePie]parentID = " + parentID + ", chartType = ", chartName);
     var canvas = $("#" + parentID + " .overview_chart" + "[category='" + chartName + "']");
+    var data = generateRandPieData();
     var ctx = canvas.get(0).getContext("2d");
-    var data = [
-        {
-            value: 3000 * Math.random(),
-            color: color[0]
-        },
-        {
-            value: 5000 * Math.random(),
-            color: color[1]
-        },
-        {
-            value: 1000 * Math.random(),
-            color: color[2]
-        },
-        {
-            value: 400 * Math.random(),
-            color: color[3]
-        },
-        {
-            value: 1200 * Math.random(),
-            color: color[4]
-        }
-
-    ]
     new Chart(ctx).Doughnut(data);
+    changeButtonOpacity(parentID, "pie");
+    changeRightNavTagColor(parentID, data);
+}
+
+
+function changeRightNavTagColor(parentID, data){
+
+    var maxValue = -1;
+    var majorColor = 'black';
+    $(data).each(function(){
+        if(this.value > maxValue){
+            maxValue= this.value;
+            majorColor=this.color;
+        }
+    });
+    var circle = $('li#li_'+parentID +'>svg>circle');
+    circle.attr('fill', majorColor);
+
 }
 
 

@@ -1,0 +1,17 @@
+{
+    "data":[
+        {"id":1, "text":"1","start_date":"01-04-2013 3:00:00", "end_date":"01-04-2013 5:00:00" , "order":"10", "progress": 0.4, "priority":1  },
+        {"id":2, "text":"2", "start_date":"01-04-2013 9:00:00", "end_date":"01-04-2013 13:00:00",  "order":"20","progress":0.5, "priority":1, "parentTask":1 },
+        {"id":3, "text":"3", "start_date":"02-04-2013 0:00:00", "end_date":"03-04-2013 10:00:00",  "order":"20", "progress": 0.6,  "priority":1 },
+        {"id":4, "text":"4", "start_date":"03-04-2013 15:00:00", "end_date":"04-04-2013 8:30:00",  "order":"20",  "progress": 0.5, "priority":1 , "parentTask":3},
+        {"id":5, "text":"1.1", "start_date":"03-04-2013 15:00:00", "end_date":"03-04-2013 18:30:00",  "order":"10",  "progress": 0.5, "priority":1 }
+    ],
+
+    "links":[
+        {"id":"1","source":"1","target":"2","type1":"0"},
+        {"id":"2","source":"2","target":"3", "type":"0"},
+        {"id":"3","source":"3","target":"4","type":"0"},
+        {"id":"4","source":"4","target":"5","type":"0"}
+
+    ]
+}

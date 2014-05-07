@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>DHTMLX Gantt Chart - Filtering, Zooming, and Custom Time Scale</title>
+    <meta name="description" content="A Gantt chart demo with custom time scale (weekends are hidden), filtering and zooming capabilities."/>
+    <meta name="keywords" content="javascript, gantt chart, gantt, charting, library, ajax, ui, project, task, management, zooming, filtering, visualization, demo"/>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="/js/jquery.min.js"><\/script>')</script>
+
+    <script src="gantt/dhtmlxgantt.js?v=2.1" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="gantt/dhtmlxgantt_broadway.css?v=2.0" type="text/css" media="screen" title="no title" charset="utf-8">
+
+</head>
+<body onresize="modSampleHeight()">
+<!--[if lte IE 7]>
+<style type="text/css">div{display:none;}</style>
+<h4 style='text-align:center; font-family:Arial; margin-top:50px;'>Unfortunately dhtmlxGantt 2.0 doesn't support IE6 and IE7 browsers.<br>Please open these demos in different browser or in IE8+.</h3>
+<![endif]-->
+
+<div class='gantt_header'>
+
+
+    <div class='controls_bar'>
+        <strong> Filtering: &nbsp; </strong>
+        <label>
+            <input name='filter'  type='radio' value='' checked='true'>
+            <span>All tasks</span></label>
+        <label>
+            <input name='filter' onclick='filter_tasks(this);' type='radio' value='1'>
+            <span>Low priority</span></label>
+        <label>
+            <input name='filter' onclick='filter_tasks(this);' type='radio' value='2'>
+            <span>High priority</span></label>
+        <span>&nbsp; &nbsp; | &nbsp; &nbsp; </span>
+        <strong> Zooming: &nbsp; </strong>
+        <label>
+            <input name='scales' onclick='zoom_tasks(this)' type='radio' value='week' checked='true'>
+            <span>Hours</span></label>
+        <label>
+            <input name='scales' onclick='zoom_tasks(this)' type='radio' value='trplweek'  >
+            <span>Days</span></label>
+        <label>
+            <input name='scales' onclick='zoom_tasks(this)' type='radio' value='year'>
+            <span>Months</span></label>
+
+        <div id="filter_hours">
+
+            <span>&nbsp; &nbsp; | &nbsp; &nbsp; </span>
+            <strong> Display: &nbsp; </strong>
+            <label>
+                <input name='scales_filter' onclick='set_scale_units(this)' type='radio' value='full_day'>
+                <span>Full day</span>
+            </label>
+            <label>
+                <input name='scales_filter' onclick='set_scale_units(this)' type='radio' value='work_hours'>
+                <span>Office hours</span>
+            </label>
+        </div>
+        <div id="filter_days">
+
+            <span>&nbsp; &nbsp; | &nbsp; &nbsp; </span>
+            <strong> Display: &nbsp; </strong>
+            <label>
+                <input name='scales_filter' onclick='set_scale_units(this)' type='radio' value='full_week'>
+                <span>Full week</span>
+            </label>
+            <label>
+                <input name='scales_filter' onclick='set_scale_units(this)' type='radio' value='work_week'>
+                <span>Workdays</span>
+            </label>
+        </div>
+    </div>
+</div>
+
+<div id="gantt_here" style='width:100%; height:100%;'></div>
+<script src="gantt/gantt.js" type="text/javascript" charset="utf-8"></script>
+
+
+</body>

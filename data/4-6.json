@@ -1,0 +1,1045 @@
+[
+
+//clusters:
+
+    {
+        "clusters": [
+            {
+                "timestamp": "2014-04-07 17:00:31.0",
+                /*last updated time*/
+                "numberOfNodes": 2,
+                "clusterHealthSummary": "GOOD",
+                /*last updated health status - the mark color*/
+                /*All data types*/
+                "nameNodeIpAddr": "10.130.252.209",
+                "tenant": "1",
+                "status": "active",
+                "clustername": "Cluster 1 - CDH4",
+                /*unique name*/
+                "clusterid": 1,
+                /*unique id*/
+                "numRunningJobs": 0,
+                "owner": "hdfs",
+                "info": {
+                    "clusterName": "Cluster 1 - CDH4",
+                    "username": "admin",
+                    "clouderaMgrAddress": "sogna01-vm95386:7180",
+                    "type": "cloudera",
+                    "password": "admin",
+                    "version": "2.0.0-mrv1"
+                }
+            }
+        ],
+        "success": true
+    }
+
+    ,
+
+//nodes: RESOURCES
+
+    {
+        "nodes": [
+            {
+                "status": "active",
+                "clusterid": "1",
+                /* runs on this cluster-id*/
+                "clustername": "Cluster 1 - CDH4",
+                /* runs on this cluster-name*/
+                "numservices": 10,
+                "roleRefs": [
+                    {
+                        "service": "sqoop1",
+                        "role": "SQOOP_SERVER"
+                    },
+                    {
+                        "service": "hdfs1",
+                        "role": "BALANCER"
+                    },
+                    {
+                        "service": "hbase1",
+                        "role": "MASTER"
+                    },
+                    {
+                        "service": "mgmt1",
+                        "role": "EVENTSERVER"
+                    },
+                    {
+                        "service": "mgmt1",
+                        "role": "SERVICEMONITOR"
+                    },
+                    {
+                        "service": "mapreduce1",
+                        "role": "TASKTRACKER"
+                    },
+                    {
+                        "service": "impala1",
+                        "role": "STATESTORE"
+                    },
+                    {
+                        "service": "hdfs1",
+                        "role": "NAMENODE"
+                    },
+                    {
+                        "service": "zookeeper1",
+                        "role": "SERVER"
+                    },
+                    {
+                        "service": "mgmt1",
+                        "role": "ACTIVITYMONITOR"
+                    },
+                    {
+                        "service": "hue1",
+                        "role": "HUE_SERVER"
+                    },
+                    {
+                        "service": "mapreduce1",
+                        "role": "JOBTRACKER"
+                    },
+                    {
+                        "service": "hdfs1",
+                        "role": "DATANODE"
+                    },
+                    {
+                        "service": "hive1",
+                        "role": "GATEWAY"
+                    },
+                    {
+                        "service": "hbase1",
+                        "role": "REGIONSERVER"
+                    },
+                    {
+                        "service": "mgmt1",
+                        "role": "HOSTMONITOR"
+                    },
+                    {
+                        "service": "hdfs1",
+                        "role": "SECONDARYNAMENODE"
+                    },
+                    {
+                        "service": "hive1",
+                        "role": "HIVEMETASTORE"
+                    },
+                    {
+                        "service": "oozie1",
+                        "role": "OOZIE_SERVER"
+                    },
+                    {
+                        "service": "mgmt1",
+                        "role": "REPORTSMANAGER"
+                    },
+                    {
+                        "service": "impala1",
+                        "role": "IMPALAD"
+                    },
+                    {
+                        "service": "mgmt1",
+                        "role": "ALERTPUBLISHER"
+                    },
+                    {
+                        "service": "hue1",
+                        "role": "BEESWAX_SERVER"
+                    }
+                ],
+                "hostname": "sogna01-VM95386.ca.com",
+                "type": "both",
+                "rackid": "\/default",
+                "nodeid": "1",
+                /*node(Recources) id*/
+                "ip": "10.130.252.209",
+                /*node(Recources) ip*/
+                "nodeHealthSummary": "GOOD",
+                /*node(Resources) health summary*/
+                "tenant": "1",
+                "owner": "hdfs",
+                "numroles": 23
+            },
+            {
+                "status": "active",
+                "clusterid": "1",
+                "clustername": "Cluster 1 - CDH4",
+                "numservices": 1,
+                "roleRefs": [
+                    {
+                        "service": "hdfs1",
+                        "role": "DATANODE"
+                    }
+                ],
+                "hostname": "sogna01-vm98893.ca.com",
+                "type": "datanode",
+                "rackid": "\/default",
+                "nodeid": "2",
+                "ip": "10.130.241.77",
+                "nodeHealthSummary": "GOOD",
+                "tenant": "1",
+                "owner": "hdfs",
+                "numroles": 1
+            }
+        ],
+        "success": true
+    }
+
+
+    ,
+//jobs: APPS
+
+    {
+        "jobrefs": [
+            {
+                "jobname": "CA_Demo_Pig",
+                /*job name*/
+                "jobsubtype": "pig",
+                "jobrefid": 1,
+                /*job id*/
+                "laststarttime": null,
+                "params": "{\"outputPath\":\"\\\/data\\\/pig\\\/output\",\"inputPath\":\"\\\/data\\\/pig\\\/input\",\"scriptFile\":\"apache-log-simple.pig\",\"files_piggybanklib\":\"piggybank-0.9.2.jar\"}",
+                "createdby": "admin",
+                "modifiedby": "admin",
+                "laststatus": null,
+                "lastmodifiedtime": "04\/07\/2014 05:01:02",
+                /* TODO: useful or not? */
+                "jobtype": "mapreduce",
+                /* jobtype "mapreduce" has jobsubtype */
+                "description": null,
+                "priority": "NORMAL",
+                "createdtime": "04\/07\/2014 05:01:02"  /**/
+            },
+            {
+                "jobname": "CA_Demo_Streaming",
+                "jobsubtype": "streaming",
+                "jobrefid": 3,
+                "laststarttime": null,
+                "params": "{\"reducer\":\"reducer.py\",\"outputPath\":\"\\\/data\\\/streaming\\\/output\",\"inputPath\":\"\\\/data\\\/streaming\\\/input\",\"mapper\":\"mapper.py\"}",
+                "createdby": "admin",
+                "modifiedby": "admin",
+                "laststatus": null,
+                "lastmodifiedtime": "04\/07\/2014 05:01:15",
+                "jobtype": "mapreduce",
+                "description": null,
+                "priority": "NORMAL",
+                "createdtime": "04\/07\/2014 05:01:15"
+            },
+            {
+                "lastmodifiedtime": "04\/07\/2014 05:01:15",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "priority": "N\/A",
+                "description": "test oozie workflow job",
+                "createdtime": "04\/07\/2014 05:01:15",
+                "jobrefid": 4,
+                "laststarttime": null,
+                "createdby": "admin",
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\\/\\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\\/tenants\\\/1\\\/jobs\\\/${examplesRoot}\"}",
+                "modifiedby": "admin",
+                "laststatus": null
+            },
+            {
+                "jobname": "CA_test wordcount-1",
+                "jobsubtype": "java",
+                "jobrefid": 2,
+                "laststarttime": null,
+                "params": "{\"reducer\":\"org.apache.hadoop.examples.WordCount.IntSumReducer\",\"outputPath\":\"\\\/data\\\/mapred\\\/output\",\"inputPath\":\"\\\/data\\\/mapred\\\/input\",\"mapper\":\"org.apache.hadoop.examples.WordCount.TokenizerMapper\"}",
+                "createdby": "admin",
+                "modifiedby": "admin",
+                "laststatus": null,
+                /*mark color*/
+                "lastmodifiedtime": "04\/07\/2014 05:01:04",
+                "jobtype": "mapreduce",
+                "description": null,
+                "priority": "NORMAL",
+                "createdtime": "04\/07\/2014 05:01:04"
+            }
+        ],
+        "success": true
+    },
+
+
+//jobinstances: APP INSTANCE
+    {
+        "jobinsts": [
+            {
+                "endtime": "04/07/2014 04:20:05",
+                "progress": "Unknown",
+                "starttime": "04/07/2014 04:19:21",
+                /*use starttime to filter job(app) instance*/
+                "jobname": "map-reduce-wf",
+                "status": "KILLED",
+                "clustername": "Cluster 1 - CDH4",
+                /*use unique clustername to filter cluster*/
+                "params": {
+                    "outputDir": "map-reduce",
+                    "examplesRoot": "example",
+                    "user.name": "GauravDugar",
+                    "queueName": "default",
+                    "nameNode": "hdfs:\/\/sogna01-VM95386.ca.com:8020",
+                    "oozie.wf.application.path": "hdfs:\/\/sogna01-VM95386.ca.com:8020\/tenants\/1\/jobs\/example",
+                    "jobTracker": "sogna01-VM95386.ca.com:8021"
+                },
+                "failureinfo": "",
+                "jobtype": "oozie",
+                "elapsedtime": 44000,
+                "jobinstanceid": "0000016-140320172323467-oozie-oozi-W",
+                /*job instance id*/
+                "priority": "N/A",
+                "additionalinfo": {
+                    "jobids": [],
+                    "group": null,
+                    "run": 0
+                },
+                "startedby": "GauravDugar"
+            }
+        ]
+
+    },
+
+
+    // Job Instance: App Instance 2
+
+    {
+        "jobinsts": [
+            {
+                "endtime": "Mon Apr 07 17:20:33 EDT 2014",
+                "starttime": "Mon Apr 07 17:11:03 EDT 2014",
+                "jobname": "CA_Demo_Pig",
+                "jobsubtype": "pig",
+                "status": "KILLED",
+                "clusterid": 1,
+                "clustername": "Cluster 1 - CDH4",
+                "jobrefid": 1,
+                "params": "{\"outputPath\":\"\\/data\\/pig\\/output\",\"inputPath\":\"\\/data\\/pig\\/input\",\"scriptFile\":\"apache-log-simple.pig\",\"files_piggybanklib\":\"piggybank-0.9.2.jar\"}",
+                "jobtype": "mapreduce",
+                "tenant": "1",
+                "jobinstanceid": "job_201403201720_0091",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 09:04:08 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 09:04:08 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000017-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 09:05:52 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 09:05:52 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000018-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 09:07:16 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 09:07:16 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000019-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 09:08:07 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 09:08:07 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000020-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 09:08:46 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 09:08:46 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000021-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 09:08:53 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 09:08:53 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000022-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 09:09:12 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 09:09:12 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000023-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 09:23:06 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 09:23:06 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000024-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 09:25:36 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 09:25:36 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000025-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 09:26:13 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 09:26:13 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000026-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 09:26:45 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 09:26:45 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000027-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 09:31:19 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 09:31:19 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000028-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 09:34:40 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 09:34:40 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000029-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 09:35:35 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 09:35:35 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000030-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 10:13:12 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 10:13:12 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000031-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 10:13:37 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 10:13:37 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000032-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 10:24:19 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 10:24:19 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000033-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 10:36:37 EDT 2014",
+                "starttime": "Tue Apr 08 10:36:37 EDT 2014",
+                "jobname": "CA_test wordcount-1",
+                "jobsubtype": "java",
+                "status": "PREP",
+                "clusterid": 1,
+                "clustername": "Cluster 1 - CDH4",
+                "jobrefid": 2,
+                "params": "{\"reducer\":\"org.apache.hadoop.examples.WordCount.IntSumReducer\",\"outputPath\":\"\\/data\\/mapred\\/output\",\"inputPath\":\"\\/data\\/mapred\\/input\",\"mapper\":\"org.apache.hadoop.examples.WordCount.TokenizerMapper\"}",
+                "jobtype": "mapreduce",
+                "tenant": "1",
+                "jobinstanceid": "job_201403201720_0092",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 10:37:56 EDT 2014",
+                "starttime": "Tue Apr 08 10:37:56 EDT 2014",
+                "jobname": "CA_Demo_Streaming",
+                "jobsubtype": "streaming",
+                "status": "PREP",
+                "clusterid": 1,
+                "clustername": "Cluster 1 - CDH4",
+                "jobrefid": 3,
+                "params": "{\"reducer\":\"reducer.py\",\"outputPath\":\"\\/data\\/streaming\\/output\",\"inputPath\":\"\\/data\\/streaming\\/input\",\"mapper\":\"mapper.py\"}",
+                "jobtype": "mapreduce",
+                "tenant": "1",
+                "jobinstanceid": "job_201403201720_0094",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 10:38:34 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 10:38:34 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000034-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 10:40:00 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 10:40:00 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000035-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 10:54:01 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 10:54:01 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000036-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 10:55:32 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 10:55:32 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000037-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 10:57:53 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 10:57:53 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000038-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 11:08:31 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 11:08:31 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000039-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 11:24:28 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 11:24:28 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000040-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 11:33:36 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 11:33:36 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000042-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 11:43:38 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 11:43:38 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000043-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 11:49:26 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 11:49:26 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000044-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 11:49:49 EDT 2014",
+                "starttime": "Tue Apr 08 11:49:49 EDT 2014",
+                "jobname": "CA_Demo_Pig",
+                "jobsubtype": "pig",
+                "status": "PREP",
+                "clusterid": 1,
+                "clustername": "Cluster 1 - CDH4",
+                "jobrefid": 1,
+                "params": "{\"outputPath\":\"\\/data\\/pig\\/output\",\"inputPath\":\"\\/data\\/pig\\/input\",\"scriptFile\":\"apache-log-simple.pig\",\"files_piggybanklib\":\"piggybank-0.9.2.jar\"}",
+                "jobtype": "mapreduce",
+                "tenant": "1",
+                "jobinstanceid": "job_201403201720_0102",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 11:51:57 EDT 2014",
+                "starttime": "Tue Apr 08 11:51:57 EDT 2014",
+                "jobname": "CA_test wordcount-1",
+                "jobsubtype": "java",
+                "status": "PREP",
+                "clusterid": 1,
+                "clustername": "Cluster 1 - CDH4",
+                "jobrefid": 2,
+                "params": "{\"reducer\":\"org.apache.hadoop.examples.WordCount.IntSumReducer\",\"outputPath\":\"\\/data\\/mapred\\/output\",\"inputPath\":\"\\/data\\/mapred\\/input\",\"mapper\":\"org.apache.hadoop.examples.WordCount.TokenizerMapper\"}",
+                "jobtype": "mapreduce",
+                "tenant": "1",
+                "jobinstanceid": "job_201403201720_0103",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 11:53:10 EDT 2014",
+                "starttime": "Tue Apr 08 11:53:10 EDT 2014",
+                "jobname": "CA_Demo_Streaming",
+                "jobsubtype": "streaming",
+                "status": "PREP",
+                "clusterid": 1,
+                "clustername": "Cluster 1 - CDH4",
+                "jobrefid": 3,
+                "params": "{\"reducer\":\"reducer.py\",\"outputPath\":\"\\/data\\/streaming\\/output\",\"inputPath\":\"\\/data\\/streaming\\/input\",\"mapper\":\"mapper.py\"}",
+                "jobtype": "mapreduce",
+                "tenant": "1",
+                "jobinstanceid": "job_201403201720_0104",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 11:53:58 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 11:53:58 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000045-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 11:59:15 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 11:59:15 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000046-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 12:00:45 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 12:00:45 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000048-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 12:08:10 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 12:08:10 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000049-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            },
+            {
+                "endtime": "Tue Apr 08 12:28:20 EDT 2014",
+                "jobtype": "oozie",
+                "jobname": "CA_Demo_Workflow",
+                "starttime": "Tue Apr 08 12:28:20 EDT 2014",
+                "tenant": "1",
+                "status": "PREP",
+                "clustername": "Cluster 1 - CDH4",
+                "jobinstanceid": "0000050-140320172323467-oozie-oozi-W",
+                "clusterid": 1,
+                "jobrefid": 4,
+                "params": "{\"examplesRoot\":\"example\",\"outputDir\":\"map-reduce\",\"queueName\":\"default\",\"nameNode\":\"hdfs:\\/\\/sogna01-VM95386.ca.com:8020\",\"jobTracker\":\"sogna01-VM95386.ca.com:8021\",\"oozie.wf.application.path\":\"${nameNode}\\/tenants\\/1\\/jobs\\/${examplesRoot}\"}",
+                "startedby": "bdm"
+            }
+        ],
+        "success": true
+    },
+    {
+        "sample": {
+            "tasks": [
+                {
+                    "id": -1,
+                    "name": "Gantt editor",
+                    "code": "",
+                    "level": 0,
+                    "status": "STATUS_ACTIVE",
+                    "canWrite": true,
+                    "start": 1397620800000,
+                    "duration": 24,
+                    "end": 1400731199999,
+                    "startIsMilestone": true,
+                    "endIsMilestone": false,
+                    "collapsed": false,
+                    "assigs": [],
+                    "hasChild": true
+                },
+                {
+                    "id": -2,
+                    "name": "coding",
+                    "code": "",
+                    "level": 1,
+                    "status": "STATUS_DONE",
+                    "canWrite": true,
+                    "start": 1397707200000,
+                    "duration": 10,
+                    "end": 1399089599999,
+                    "startIsMilestone": false,
+                    "endIsMilestone": false,
+                    "collapsed": false,
+                    "assigs": [],
+                    "description": "",
+                    "progress": 0,
+                    "hasChild": true
+                },
+                {
+                    "id": -3,
+                    "name": "gant part",
+                    "code": "",
+                    "level": 2,
+                    "status": "STATUS_DONE",
+                    "canWrite": true,
+                    "start": 1397707200000,
+                    "duration": 2,
+                    "end": 1397879999999,
+                    "startIsMilestone": false,
+                    "endIsMilestone": false,
+                    "collapsed": false,
+                    "assigs": [],
+                    "depends": "",
+                    "hasChild": false
+                },
+                {
+                    "id": -4,
+                    "name": "editor part",
+                    "code": "",
+                    "level": 2,
+                    "status": "STATUS_DONE",
+                    "canWrite": true,
+                    "start": 1398052800000,
+                    "duration": 4,
+                    "end": 1398398399999,
+                    "startIsMilestone": false,
+                    "endIsMilestone": false,
+                    "collapsed": false,
+                    "assigs": [],
+                    "depends": "3",
+                    "hasChild": false
+                },
+                {
+                    "id": -5,
+                    "name": "testing",
+                    "code": "",
+                    "level": 1,
+                    "status": "STATUS_ACTIVE",
+                    "canWrite": true,
+                    "start": 1399867200000,
+                    "duration": 6,
+                    "end": 1400558399999,
+                    "startIsMilestone": false,
+                    "endIsMilestone": false,
+                    "collapsed": false,
+                    "assigs": [],
+                    "depends": "2:5",
+                    "description": "",
+                    "progress": 0,
+                    "hasChild": true
+                },
+                {
+                    "id": -6,
+                    "name": "test on safari",
+                    "code": "",
+                    "level": 2,
+                    "status": "STATUS_ACTIVE",
+                    "canWrite": true,
+                    "start": 1399867200000,
+                    "duration": 2,
+                    "end": 1400039999999,
+                    "startIsMilestone": false,
+                    "endIsMilestone": false,
+                    "collapsed": false,
+                    "assigs": [],
+                    "depends": "",
+                    "hasChild": false
+                },
+                {
+                    "id": -7,
+                    "name": "test on ie",
+                    "code": "",
+                    "level": 2,
+                    "status": "STATUS_SUSPENDED",
+                    "canWrite": true,
+                    "start": 1400040000000,
+                    "duration": 3,
+                    "end": 1400299199999,
+                    "startIsMilestone": false,
+                    "endIsMilestone": false,
+                    "collapsed": false,
+                    "assigs": [],
+                    "depends": "6",
+                    "hasChild": false
+                },
+                {
+                    "id": -8,
+                    "name": "test on chrome",
+                    "code": "",
+                    "level": 2,
+                    "status": "STATUS_SUSPENDED",
+                    "canWrite": true,
+                    "start": 1400040000000,
+                    "duration": 2,
+                    "end": 1400212799999,
+                    "startIsMilestone": false,
+                    "endIsMilestone": false,
+                    "collapsed": false,
+                    "assigs": [],
+                    "depends": "6",
+                    "hasChild": false
+                }
+            ],
+            "selectedRow": 1,
+            "deletedTaskIds": [],
+            "resources": [
+                {
+                    "id": "tmp_1",
+                    "name": "Resource 1"
+                },
+                {
+                    "id": "tmp_2",
+                    "name": "Resource 2"
+                },
+                {
+                    "id": "tmp_3",
+                    "name": "Resource 3"
+                },
+                {
+                    "id": "tmp_4",
+                    "name": "Resource 4"
+                },
+                {
+                    "id": "tmp_5",
+                    "name": "Resource 5"
+                },
+                {
+                    "id": "tmp_6",
+                    "name": "Resource 6"
+                },
+                {
+                    "id": "tmp_7",
+                    "name": "Resource 7"
+                },
+                {
+                    "id": "tmp_8",
+                    "name": "Resource 8"
+                },
+                {
+                    "id": "tmp_9",
+                    "name": "Resource 9"
+                },
+                {
+                    "id": "tmp_10",
+                    "name": "Resource 10"
+                }
+            ],
+            "roles": [
+                {
+                    "id": "tmp_1",
+                    "name": "Project Manager"
+                },
+                {
+                    "id": "tmp_2",
+                    "name": "Worker"
+                },
+                {
+                    "id": "tmp_3",
+                    "name": "Stakeholder/Customer"
+                }
+            ],
+            "canWrite": true,
+            "canWriteOnParent": true
+        }
+
+    }
+]
